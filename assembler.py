@@ -23,10 +23,8 @@ def getDecimal(numIn):
         out = int(numIn[2:], 16)
     else:
         out = int(numIn)
-    print(out)
     if (out < 0):
         out = -(-out - (1<<16))
-    print(out)
     return out
 
 with open(sys.argv[1]) as f:
@@ -197,6 +195,7 @@ for line in lines:
         op = hex(int(opcodes[instr].replace(' ', ''), 2))[2:].zfill(2)
 
     out = ''
+
     if (instr.lower() in opRRR):
         out = op + '000' + hex(registers[line[2].lower()])[2:] \
             + hex(registers[line[3].lower()])[2:] \
@@ -230,10 +229,12 @@ for line in lines:
         out = op + hex(getDecimal(str(imm)))[2:].zfill(4) \
             + hex(registers[line[3].lower()])[2:] \
             + hex(registers[r1.lower()])[2:]
-    elif (instr.lower() == ".word"):
-        out = hex(getDecimal(line[2]))[2:].zfill(8)
+    elif (instr.lower == ".word"):
+        imm = line[2]
+        if (str(imm).lower() in labels):
+            imm = labels[imm.lower()]*4
+        out = hex(getDecimal(imm))[2:].zfill(8)
     else:
-        print(instr)
         print("Instruction not found")
         exit(1)
 
