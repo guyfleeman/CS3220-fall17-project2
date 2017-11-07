@@ -12,10 +12,9 @@ nameout = os.path.splitext(sys.argv[1])[0] + ".mif"
 if len(sys.argv) >= 3:
     nameout = sys.argv[2]
 
-fout = open(nameout, "w")
-
 lines = []
 labels = {}
+usedAddr = []
 
 def getDecimal(numIn):
     out = 0
@@ -53,6 +52,7 @@ with open(sys.argv[1]) as f:
 
         if (len(line) == 2 and line[0].lower() == ".orig"):
             # handle .orig
+            usedAddr += [[lastAddr, currAddr-1]]
             currAddr = getDecimal(line[1])/4
             lastAddr = currAddr
             line = ""
@@ -63,7 +63,7 @@ with open(sys.argv[1]) as f:
             line = ""
         elif (line != ""):
             # psuedo instructions
-            if (line[0].lower() == "br"):
+            if (line[0].lower() == "br" or line[0].lower() == "b"):
                 line = ["BEQ", line[1], "R6", "R6"]
             elif (line[0].lower() == "not"):
                 line = ["NAND", line[1], line[1], line[2]]
@@ -90,6 +90,7 @@ with open(sys.argv[1]) as f:
             if (lineNext != ""):
                 lines.append([currAddr] + line)
                 currAddr += 1
+usedAddr += [[lastAddr, currAddr-1]]
 
 # print lines
 # print labels
@@ -245,10 +246,32 @@ for line in lines:
 
     mifOut += [hex(currAddr)[2:].zfill(8) + ' : ' + out + ';']
     # print(out)
+
+deadAddr = []
+
+lastUsed = -1
+for i in range(2048):
+    used = False
+    for j in usedAddr:
+        if i >= j[0] and i <= j[1]:
+            used = True
+            break
+    if used:
+        if i != lastUsed+1:
+            deadAddr += [[lastUsed+1, i-1]]
+        lastUsed = i
+if lastUsed != 2047:
+    deadAddr += [[lastUsed+1, 2047]]
+
+for i in deadAddr:
+    mifOut += ['[' + hex(i[0])[2:].zfill(8) + '..' + hex(i[1])[2:].zfill(8)
+                + '] : DEAD;']
+
 mifOut += ['END;']
 
-for i in mifOut:
-    print(i)
+# for i in mifOut:
+#     print(i)
 
-
-fout.close()
+with open(nameout, 'w') as fout:
+    for i in mifOut:
+        fout.write(i+'\n')
