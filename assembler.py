@@ -238,6 +238,7 @@ for line in lines:
             imm = labels[imm.lower()]*4
         out = hex(getDecimal(imm))[2:].zfill(8)
     else:
+        print(instr)
         print("Instruction not found")
         print(instr)
         exit(1)
