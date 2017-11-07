@@ -19,6 +19,7 @@ labels = {}
 
 def getDecimal(numIn):
     out = 0
+    numIn = numIn.strip()
     if numIn.lower().startswith("0x"):
         out = int(numIn[2:], 16)
     else:
@@ -32,15 +33,15 @@ with open(sys.argv[1]) as f:
     currAddr = 0
     for line in f:
         line = line.replace("\n","")
+        line = line.split(";",1)[0]
         label = ""
-        if (line == ""):
+        if (line.strip() == ""):
             continue
 
         l1 = line.split(":", 1)
         if (len(l1) == 2):
-            line = l1[1]
+            line = l1[1].strip()
             label = l1[0]
-
 
         if (line != ""):
             line = line.split(None, 1)
@@ -204,6 +205,8 @@ for line in lines:
         imm = line[2]
         if (str(imm).lower() in labels):
             imm = labels[imm.lower()]*4
+            if (instr in opPCRel):
+                imm = imm - currAddr - 4
         out = op + hex(getDecimal(str(imm)))[2:].zfill(4) \
             + hex(registers[line[3].lower()])[2:] \
             + hex(registers[line[4].lower()])[2:]
@@ -229,16 +232,17 @@ for line in lines:
         out = op + hex(getDecimal(str(imm)))[2:].zfill(4) \
             + hex(registers[line[3].lower()])[2:] \
             + hex(registers[r1.lower()])[2:]
-    elif (instr.lower == ".word"):
+    elif (instr.lower() == ".word"):
         imm = line[2]
         if (str(imm).lower() in labels):
             imm = labels[imm.lower()]*4
         out = hex(getDecimal(imm))[2:].zfill(8)
     else:
         print("Instruction not found")
+        print(instr)
         exit(1)
 
-    mifOut += [hex(currAddr)[2:].zfill(8) + ' ; ' + out + ';']
+    mifOut += [hex(currAddr)[2:].zfill(8) + ' : ' + out + ';']
     # print(out)
 mifOut += ['END;']
 
