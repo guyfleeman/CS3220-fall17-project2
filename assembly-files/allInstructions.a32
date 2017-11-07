@@ -1,0 +1,70 @@
+.NAME StkTop=8192
+.ORIG 0x40
+Data:
+.WORD 64
+
+ADD  r0,r1,r2
+SUB  r3,a0,a1
+AND  a2,a3,r4
+OR   r5,t0,t1
+XOR  r6,r7,r8
+NAND s0,s1,s2
+NOR  r9,r10,r11
+XNOR r12,r13,r14
+
+ADDI  0,r15,r15
+SUBI  0,r1,r2
+ANDI  256,r1,r1
+ORI   64,r1,r2
+XoRi  0,r1,r1
+NANDI -5,t0,t0
+nori  65535,T0,t0
+XNORI -256,t1,t1
+MVHI  WORD,S0
+
+LW 4(r0),r0
+LW WORD(r1),r1
+
+F   r0,r0,r0
+EQ  r0,r0,r0
+lt  r0,r0,r0
+LTE r0,r0,r0
+T   r0,r0,r0
+NE  r0,r0,r0
+GtE r0,r0,r0
+gt  r1,r1,r1
+
+FI   0,r0,r0
+EQI  0,r0,r0
+ltI  0,r0,r0
+LTEI 0,r1,r1
+TI   1,s0,s1
+NEI  4,t1,t1
+gtei 256,a1,a2
+gti  5,s2,a3
+
+branching:
+bf    6,r0,r0
+beq   10,r0,r0
+blt   256,r0,r0
+blte  55,r0,r0
+beqz  10,r0,r0
+BlTZ  10,r0,r0
+BLTEZ 0,r1,r1
+
+BT    0,r0,r0
+BNE   10,r1,r1
+BGTE  0,s0,s0
+BGT   0,r0,r0
+BNEZ  1,r1,r1
+BGTEZ 2,r1,r1
+BGTZ  9,r1,r1
+
+BR    word
+NOT   r0,r0
+BLE   word,r0,r0
+BGE   0,r0,r0
+
+CALL  WORD(r0)
+RET
+JMP   0(r0)

@@ -1,0 +1,7 @@
+{ "" "" "" "Verilog HDL or VHDL warning at altera_pll.v(395): object \"cntsel_temp\" assigned a value but never read" {  } {  } 0 10036 "" 0 0 "Quartus II" 0 -1 0 ""}
+{ "" "" "" "Verilog HDL or VHDL warning at altera_pll.v(397): object \"gnd\" assigned a value but never read" {  } {  } 0 10036 "" 0 0 "Quartus II" 0 -1 0 ""}
+{ "" "" "" "Parallel compilation is not licensed and has been disabled" {  } {  } 0 20028 "" 0 0 "Quartus II" 0 -1 0 ""}
+{ "" "" "" "Verilog HDL warning at InstMemory.v(11): object data used but never assigned" {  } {  } 0 10858 "" 0 0 "Quartus II" 0 -1 0 ""}
+{ "" "" "" "Synthesized away node \"PLL:PLL_inst\|PLL_0002:pll_inst\|altera_pll:altera_pll_i\|outclk_wire\[0\]\"" {  } {  } 0 14320 "" 0 0 "Quartus II" 0 -1 0 ""}
+{ "" "" "" "Synthesized away the following PLL node(s):" {  } {  } 0 14285 "" 0 0 "Quartus II" 0 -1 0 ""}
+{ "" "" "" "Synthesized away the following node(s):" {  } {  } 0 14284 "" 0 0 "Quartus II" 0 -1 0 ""}
