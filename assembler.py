@@ -229,12 +229,13 @@ for line in lines:
         out = op + hex(getDecimal(str(imm)))[2:].zfill(4) \
             + hex(registers[line[3].lower()])[2:] \
             + hex(registers[r1.lower()])[2:]
-    elif (instr.lower == ".word"):
+    elif (instr.lower() == ".word"):
         imm = line[2]
         if (str(imm).lower() in labels):
             imm = labels[imm.lower()]*4
         out = hex(getDecimal(imm))[2:].zfill(8)
     else:
+        print(instr)
         print("Instruction not found")
         exit(1)
 

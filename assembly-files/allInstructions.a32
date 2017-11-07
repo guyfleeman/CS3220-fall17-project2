@@ -1,4 +1,5 @@
 .NAME StkTop=8192
+.NAME DATA=0
 .ORIG 0x40
 Data:
 .WORD 64
@@ -20,10 +21,10 @@ XoRi  0,r1,r1
 NANDI -5,t0,t0
 nori  65535,T0,t0
 XNORI -256,t1,t1
-MVHI  WORD,S0
+MVHI  DATA,S0
 
 LW 4(r0),r0
-LW WORD(r1),r1
+LW DATA(r1),r1
 
 F   r0,r0,r0
 EQ  r0,r0,r0
@@ -60,11 +61,11 @@ BNEZ  1,r1,r1
 BGTEZ 2,r1,r1
 BGTZ  9,r1,r1
 
-BR    word
+BR    data
 NOT   r0,r0
-BLE   word,r0,r0
+BLE   data,r0,r0
 BGE   0,r0,r0
 
-CALL  WORD(r0)
+CALL  DATA(r0)
 RET
 JMP   0(r0)
