@@ -3,182 +3,209 @@
 import sys
 import os
 
-
 if len(sys.argv) < 2:
-    print("No file provided")
+    print('No file provided')
     exit(1)
 
-nameout = os.path.splitext(sys.argv[1])[0] + ".mif"
+nameout = os.path.splitext(sys.argv[1])[0] + '.mif'
 if len(sys.argv) >= 3:
     nameout = sys.argv[2]
+
+
+
+# Convert number to ensure it is decimal
+def getDecimal(numIn):
+    numIn = str(numIn.strip())
+    out = 0
+    try:
+        if numIn.startswith('0X'):
+            out = int(numIn[2:], 16)
+        else:
+            out = int(numIn)
+    except ValueError:
+        raise ValueError('Invalid number or label: ' + numIn)
+
+    if abs(out) >= 1<<16:
+        raise ValueError('Immediate larger than 16bits: ' + numIn)
+
+    if (out < 0):
+        # Two's complement if less than 0
+        out = -(-out - (1<<16))
+
+    return out
+
+
 
 lines = []
 labels = {}
 usedAddr = []
 
-def getDecimal(numIn):
-    out = 0
-    numIn = numIn.strip()
-    if numIn.lower().startswith("0x"):
-        out = int(numIn[2:], 16)
-    else:
-        out = int(numIn)
-    if (out < 0):
-        out = -(-out - (1<<16))
-    return out
+try:
+    with open(sys.argv[1]) as f:
+        lastAddr = 0
+        currAddr = 0
+        lineCount = 0
+        for line in f:
+            lineOriginal = line.strip()
+            lineCount += 1
+            label = ''
 
-with open(sys.argv[1]) as f:
-    lastAddr = 0
-    currAddr = 0
-    for line in f:
-        line = line.replace("\n","")
-        line = line.split(";",1)[0]
-        label = ""
-        if (line.strip() == ""):
-            continue
+            # Clean and check for empty lines, remove comments
+            line = line.replace('\n','')
+            line = line.upper()
+            line = line.split(';',1)[0]
+            if (line.strip() == ''):
+                continue
 
-        l1 = line.split(":", 1)
-        if (len(l1) == 2):
-            line = l1[1].strip()
-            label = l1[0]
+            # Extract labels
+            l1 = line.split(':', 1)
+            if (len(l1) == 2):
+                line = l1[1].strip()
+                label = l1[0].strip()
+                labels[label] = currAddr
+                if line == '':
+                    continue
 
-        if (line != ""):
-            line = line.split(None, 1)
-            line = line[0:-1] + line[-1].split(",")
-            line = [i.strip() for i in line]
+            if len(line) > 0:
+                # Split at first space and commas and clean up
+                line = line.split(None, 1)
+                line = line[0:-1] + line[-1].split(',')
+                line = [i.strip() for i in line]
+                lineNext = ''
+                # Psuedo and special assembler instructions
+                if (len(line) == 2 and line[0] == '.ORIG'):
+                    # handle .orig
+                    usedAddr += [[lastAddr, currAddr-1]]
+                    currAddr = getDecimal(line[1])/4
+                    lastAddr = currAddr
+                    continue
+                elif (len(line) == 2 and line[0] == '.NAME'):
+                    # handle .name
+                    try:
+                        label, labelAddrTemp = line[1].split('=');
+                        labelAddr = getDecimal(labelAddrTemp)/4
+                        labels[label.strip()] = labelAddr
+                    except ValueError:
+                        raise ValueError("Invalid .NAME input")
+                    continue
+                elif (len(line) == 2 and line[0] == 'BR' or line[0] == 'B'):
+                    line = ['BEQ', line[1], 'R6', 'R6']
+                elif (len(line) == 3 and line[0] == 'NOT'):
+                    line = ['NAND', line[1], line[1], line[2]]
+                elif (len(line) == 4 and line[0] == 'BLE'):
+                    line = ['LTE', line[2], line[3], 'R6']
+                    lineNext = ['BNEZ', line[1], 'R6']
+                elif (len(line) == 4 and line[0] == 'BGE'):
+                    line = ['GTE', line[2], line[3], 'R6']
+                    lineNext = ['BNEZ', line[1], 'R6']
+                elif (len(line) == 2 and line[0] == 'CALL'):
+                    line = ['JAL', line[1], 'RA']
+                elif (len(line) == 1 and line[0] == 'RET'):
+                    line = ['JAL', '0(RA)', 'R9']
+                elif (len(line) == 1 and line[0] == 'JMP'):
+                    line = ['JAL', line[1], 'R9']
 
-        labelAddr = currAddr
-        lineNext = ""
-
-        if (len(line) == 2 and line[0].lower() == ".orig"):
-            # handle .orig
-            usedAddr += [[lastAddr, currAddr-1]]
-            currAddr = getDecimal(line[1])/4
-            lastAddr = currAddr
-            line = ""
-        elif (len(line) == 2 and line[0].lower() == '.name'):
-            # handle .name
-            label, labelAddrTemp = line[1].split("=");
-            labelAddr = getDecimal(labelAddrTemp)/4
-            line = ""
-        elif (line != ""):
-            # psuedo instructions
-            if (line[0].lower() == "br" or line[0].lower() == "b"):
-                line = ["BEQ", line[1], "R6", "R6"]
-            elif (line[0].lower() == "not"):
-                line = ["NAND", line[1], line[1], line[2]]
-            elif (line[0].lower() == "ble"):
-                line = ["LTE", line[2], line[3], "R6"]
-                lineNext = ["BNEZ", line[1], "R6"]
-            elif (line[0].lower() == "bge"):
-                line = ["GTE", line[2], line[3], "R6"]
-                lineNext = ["BNEZ", line[1], "R6"]
-            elif (line[0].lower() == "call"):
-                line = ["JAL", line[1], "RA"]
-            elif (line[0].lower() == "ret"):
-                line = ["JAL", "0(RA)", "R9"]
-            elif (line[0].lower() == "jmp"):
-                line = ["JAL", line[1], "R9"]
-
-        label = label.lower()
-        if label != "" :
-            labels[label] = labelAddr
-
-        if (line != ""):
-            lines.append([currAddr] + line)
-            currAddr += 1
-            if (lineNext != ""):
-                lines.append([currAddr] + line)
+                lines.append([[currAddr] + line, 'Line ' + str(lineCount) + ', \"'
+                    + lineOriginal + '\"'])
                 currAddr += 1
+                if (lineNext != ''):
+                    lines.append([[currAddr] + lineNext, 'Line ' +
+                        str(lineCount) + ', \"' + lineOriginal])
+                    currAddr += 1
+            else:
+                raise ValueError("Empty value")
+except ValueError as inst:
+    print(str(inst) + "\n  " + 'Line ' + str(lineCount) + ', \"' + lineOriginal)
+    exit(1)
+except IOError as inst:
+    print("Invalid input file")
+    exit(1)
+
 usedAddr += [[lastAddr, currAddr-1]]
 
-# print lines
-# print labels
-
 opcodes = {
-    "add"   : "1111 0011",
-    "sub"   : "1111 0010",
-    "and"   : "1111 0111",
-    "or"    : "1111 0110",
-    "xor"   : "1111 0101",
-    "nand"  : "1111 1011",
-    "nor"   : "1111 1010",
-    "xnor"  : "1111 1001",
+    'ADD'   : '1111 0011',
+    'SUB'   : '1111 0010',
+    'AND'   : '1111 0111',
+    'OR'    : '1111 0110',
+    'XOR'   : '1111 0101',
+    'NAND'  : '1111 1011',
+    'NOR'   : '1111 1010',
+    'XNOR'  : '1111 1001',
 
-    "addi"  : "1011 0011",
-    "subi"  : "1011 1011",
-    "andi"  : "1011 0111",
-    "ori"   : "1011 0110",
-    "xori"  : "1011 0101",
-    "nandi" : "1011 1011",
-    "nori"  : "1011 1010",
-    "xnori" : "1011 1001",
-    "mvhi"  : "1011 1001",
+    'ADDI'  : '1011 0011',
+    'SUBI'  : '1011 1011',
+    'ANDI'  : '1011 0111',
+    'ORI'   : '1011 0110',
+    'XORI'  : '1011 0101',
+    'NANDI' : '1011 1011',
+    'NORI'  : '1011 1010',
+    'XNORI' : '1011 1001',
+    'MVHI'  : '1011 1001',
 
-    "lw"    : "1000 0000",
-    "sw"    : "1001 0000",
+    'LW'    : '1000 0000',
+    'SW'    : '1001 0000',
 
-    "f"     : "1110 0011",
-    "eq"    : "1110 1100",
-    "lt"    : "1110 1101",
-    "lte"   : "1110 0010",
-    "t"     : "1110 1111",
-    "ne"    : "1110 0000",
-    "gte"   : "1110 0001",
-    "gt"    : "1110 1110",
+    'F'     : '1110 0011',
+    'EQ'    : '1110 1100',
+    'LT'    : '1110 1101',
+    'LTE'   : '1110 0010',
+    'T'     : '1110 1111',
+    'NE'    : '1110 0000',
+    'GTE'   : '1110 0001',
+    'GT'    : '1110 1110',
 
-    "fi"    : "1010 0011",
-    "eqi"   : "1010 1100",
-    "lti"   : "1010 1101",
-    "ltei"  : "1010 0010",
-    "ti"    : "1010 1111",
-    "nei"   : "1010 0000",
-    "gtei"  : "1010 0001",
-    "gti"   : "1010 1110",
+    'FI'    : '1010 0011',
+    'EQI'   : '1010 1100',
+    'LTI'   : '1010 1101',
+    'LTEI'  : '1010 0010',
+    'TI'    : '1010 1111',
+    'NEI'   : '1010 0000',
+    'GTEI'  : '1010 0001',
+    'GTI'   : '1010 1110',
 
-    "bf"    : "0000 0011",
-    "beq"   : "0000 1100",
-    "blt"   : "0000 1101",
-    "blte"  : "0000 0010",
-    "beqz"  : "0000 1000",
-    "bltz"  : "0000 1001",
-    "bltez" : "0000 0110",
-    "bt"    : "0000 1111",
-    "bne"   : "0000 0000",
-    "bgte"  : "0000 0001",
-    "bgt"   : "0000 1110",
-    "bnez"  : "0000 0100",
-    "bgtez" : "0000 0101",
-    "bgtz"  : "0000 1010",
+    'BF'    : '0000 0011',
+    'BEQ'   : '0000 1100',
+    'BLT'   : '0000 1101',
+    'BLTE'  : '0000 0010',
+    'BEQZ'  : '0000 1000',
+    'BLTZ'  : '0000 1001',
+    'BLTEZ' : '0000 0110',
+    'BT'    : '0000 1111',
+    'BNE'   : '0000 0000',
+    'BGTE'  : '0000 0001',
+    'BGT'   : '0000 1110',
+    'BNEZ'  : '0000 0100',
+    'BGTEZ' : '0000 0101',
+    'BGTZ'  : '0000 1010',
 
-    "jal"   : "0001 0000"
+    'JAL'   : '0001 0000'
 }
 
-registers = {"r%d" % i : i for i in range(16)}
-registers['a0'] = 0;
-registers['a1'] = 1;
-registers['a2'] = 2;
-registers['a3'] = 3;
-registers['rv'] = 3;
-registers['t0'] = 4;
-registers['t1'] = 5;
-registers['s0'] = 6;
-registers['s1'] = 7;
-registers['s2'] = 8;
-registers['gp'] = 12;
-registers['fp'] = 13;
-registers['sp'] = 14;
-registers['ra'] = 15;
+registers = {'R%d' % i : i for i in range(16)}
+registers['A0'] = 0;
+registers['A1'] = 1;
+registers['A2'] = 2;
+registers['A3'] = 3;
+registers['RV'] = 3;
+registers['T0'] = 4;
+registers['T1'] = 5;
+registers['S0'] = 6;
+registers['S1'] = 7;
+registers['S2'] = 8;
+registers['GP'] = 12;
+registers['FP'] = 13;
+registers['SP'] = 14;
+registers['RA'] = 15;
 
-opRRR = ['add', 'sub', 'and', 'or', 'xor', 'nand', 'nor', 'xnor', 'f', 'eq',
-         'lt', 'lte', 't', 'ne', 'gte', 'gt']
-opIRR = ['addi', 'subi', 'andi', 'ori', 'xori', 'nandi', 'nori', 'xnori', 'fi',
-         'eqi', 'lti', 'ltei', 'ti', 'nei', 'gtei', 'gti', 'bf', 'beq', 'blt',
-         'blte', 'bt', 'bne', 'bgte', 'bgt']
-opIR = ['mvhi', 'beqz', 'bltz', 'bltez', 'bnez', 'bgtez', 'bgtz']
-opPCRel = ['bf', 'beq', 'blt', 'blte', 'beqz', 'bltz', 'bltez', 'bt', 'bne',
-           'bgte', 'bgt', 'bnez', 'bgtez', 'bgtz']
-
+opRRR = ['ADD', 'SUB', 'AND', 'OR', 'XOR', 'NAND', 'NOR', 'XNOR', 'F', 'EQ',
+         'LT', 'LTE', 'T', 'NE', 'GTE', 'GT']
+opIRR = ['ADDI', 'SUBI', 'ANDI', 'ORI', 'XORI', 'NANDI', 'NORI', 'XNORI', 'FI',
+         'EQI', 'LTI', 'LTEI', 'TI', 'NEI', 'GTEI', 'GTI', 'BF', 'BEQ', 'BLT',
+         'BLTE', 'BT', 'BNE', 'BGTE', 'BGT']
+opIR = ['MVHI', 'BEQZ', 'BLTZ', 'BLTEZ', 'BNEZ', 'BGTEZ', 'BGTZ']
+opPCRel = ['BF', 'BEQ', 'BLT', 'BLTE', 'BEQZ', 'BLTZ', 'BLTEZ', 'BT', 'BNE',
+           'BGTE', 'BGT', 'BNEZ', 'BGTEZ', 'BGTZ']
 # specials: LW SW JAL
 
 mifOut = []
@@ -188,64 +215,72 @@ mifOut += ['ADDRESS_RADIX=HEX;']
 mifOut += ['DATA_RADIX=HEX;']
 mifOut += ['CONTENT BEGIN']
 
-for line in lines:
-    currAddr = line[0]
-    instr = line[1].lower()
-    if instr.lower() == ".word":
-        op = ""
-    else:
-        op = hex(int(opcodes[instr].replace(' ', ''), 2))[2:].zfill(2)
+def hexReg(reg):
+    try:
+        return hex(registers[reg])[2:]
+    except KeyError:
+        raise ValueError("Invalid register value: " + str(reg))
 
-    out = ''
+for l1 in lines:
+    try:
+        line = l1[0]
+        info = l1[1]
+        currAddr = line[0]
+        instr = line[1]
+        if instr == '.WORD':
+            op = ''
+        else:
+            try:
+                op = hex(int(opcodes[instr].replace(' ', ''), 2))[2:].zfill(2)
+            except KeyError:
+                raise ValueError("Invalid instruction or parameters")
 
-    if (instr.lower() in opRRR):
-        out = op + '000' + hex(registers[line[2].lower()])[2:] \
-            + hex(registers[line[3].lower()])[2:] \
-            + hex(registers[line[4].lower()])[2:]
-    elif (instr.lower() in opIRR):
-        imm = line[2]
-        if (str(imm).lower() in labels):
-            imm = labels[imm.lower()]*4
-            if (instr in opPCRel):
-                imm = imm - currAddr - 4
-        out = op + hex(getDecimal(str(imm)))[2:].zfill(4) \
-            + hex(registers[line[3].lower()])[2:] \
-            + hex(registers[line[4].lower()])[2:]
-    elif (instr.lower() in opIR):
-        imm = line[2]
-        if (str(imm).lower() in labels):
-            imm = labels[imm.lower()]*4
-        out = op + hex(getDecimal(str(imm)))[2:].zfill(4) \
-            + hex(registers[line[3].lower()])[2:] + '0'
-    elif (instr.lower() == 'lw' or instr.lower() == 'jal'):
-        imm, r1 = line[2].split("(")
-        r1 = r1.replace(')', '')
-        if (str(imm).lower() in labels):
-            imm = labels[imm.lower()]*4
-        out = op + hex(getDecimal(str(imm)))[2:].zfill(4) \
-            + hex(registers[r1.lower()])[2:] \
-            + hex(registers[line[3].lower()])[2:]
-    elif (instr.lower() == 'sw'):
-        imm, r1 = line[2].split("(")
-        r1 = r1.replace(')', '')
-        if (str(imm).lower() in labels):
-            imm = labels[imm.lower()]*4
-        out = op + hex(getDecimal(str(imm)))[2:].zfill(4) \
-            + hex(registers[line[3].lower()])[2:] \
-            + hex(registers[r1.lower()])[2:]
-    elif (instr.lower() == ".word"):
-        imm = line[2]
-        if (str(imm).lower() in labels):
-            imm = labels[imm.lower()]*4
-        out = hex(getDecimal(imm))[2:].zfill(8)
-    else:
-        print(instr)
-        print("Instruction not found")
-        print(instr)
+        out = ''
+
+        if (instr in opRRR and len(line) == 5):
+            out = op + '000' + hexReg(line[2]) + hexReg(line[3]) \
+                + hexReg(line[4])
+        elif (instr in opIRR and len(line) == 5):
+            imm = line[2]
+            if (str(imm) in labels):
+                imm = labels[imm]*4
+                if (instr in opPCRel):
+                    imm = imm - currAddr - 4
+            out = op + hex(getDecimal(str(imm)))[2:].zfill(4) \
+                + hexReg(line[3]) + hexReg(line[4])
+        elif (instr in opIR and len(line) == 4):
+            imm = line[2]
+            if (str(imm) in labels):
+                imm = labels[imm]*4
+            out = op + hex(getDecimal(str(imm)))[2:].zfill(4) \
+                + hexReg(line[3]) + '0'
+        elif ((instr == 'LW' or instr == 'JAL') and len(line) == 4):
+            imm, r1 = line[2].split('(')
+            r1 = r1.replace(')', '')
+            if (str(imm) in labels):
+                imm = labels[imm]*4
+            out = op + hex(getDecimal(str(imm)))[2:].zfill(4) + hexReg(r1) \
+                + hexReg(line[3])
+        elif (instr == 'SW' and len(line) == 4):
+            imm, r1 = line[2].split('(')
+            r1 = r1.replace(')', '')
+            if (str(imm) in labels):
+                imm = labels[imm]*4
+            out = op + hex(getDecimal(str(imm)))[2:].zfill(4) \
+                + hexReg(line[3]) + hexReg(r1)
+        elif (instr == '.WORD' and len(line) == 3):
+            imm = line[2]
+            if (str(imm) in labels):
+                imm = labels[imm]*4
+            out = hex(getDecimal(imm))[2:].zfill(8)
+        else:
+            raise ValueError("Invalid instruction or parameters")
+
+        mifOut += [hex(currAddr)[2:].zfill(8) + ' : ' + out + ';']
+        # print(out)
+    except ValueError as inst:
+        print(str(inst) + "\n  " + str(info))
         exit(1)
-
-    mifOut += [hex(currAddr)[2:].zfill(8) + ' : ' + out + ';']
-    # print(out)
 
 deadAddr = []
 
