@@ -14,7 +14,7 @@ if len(sys.argv) >= 3:
 
 
 # Convert number to ensure it is decimal
-def getDecimal(numIn):
+def getDecimal(numIn, isUpper=False):
     numIn = str(numIn.strip())
     out = 0
     try:
@@ -25,13 +25,19 @@ def getDecimal(numIn):
     except ValueError:
         raise ValueError('Invalid number or label: ' + numIn)
 
-    if abs(out) >= 1<<16:
-        raise ValueError('Immediate larger than 16bits: ' + numIn)
+    if abs(out) >= 1<<32:
+        raise ValueError('Immediate larger than 32bits: ' + numIn)
 
     if (out < 0):
         # Two's complement if less than 0
-        out = -(-out - (1<<16))
+        out = -(-out - (1<<32))
 
+    if (isUpper):
+        out = (out >> 16) & 0xFFFF
+    else:
+        out = out & 0xFFFF
+
+    # print(str(numIn) + " - " + str(out))
     return out
 
 
@@ -83,7 +89,7 @@ try:
                     # handle .name
                     try:
                         label, labelAddrTemp = line[1].split('=');
-                        labelAddr = getDecimal(labelAddrTemp)/4
+                        labelAddr = labelAddrTemp
                         labels[label.strip()] = labelAddr
                     except ValueError:
                         raise ValueError("Invalid .NAME input")
@@ -122,64 +128,65 @@ except IOError as inst:
     exit(1)
 
 usedAddr += [[lastAddr, currAddr-1]]
+print(labels)
 
 opcodes = {
-    'ADD'   : '1111 0011',
-    'SUB'   : '1111 0010',
-    'AND'   : '1111 0111',
-    'OR'    : '1111 0110',
-    'XOR'   : '1111 0101',
-    'NAND'  : '1111 1011',
-    'NOR'   : '1111 1010',
-    'XNOR'  : '1111 1001',
+    'ADD'   : '0011 1111',
+    'SUB'   : '0010 1111',
+    'AND'   : '0111 1111',
+    'OR'    : '0110 1111',
+    'XOR'   : '0101 1111',
+    'NAND'  : '1011 1111',
+    'NOR'   : '1010 1111',
+    'XNOR'  : '1001 1111',
 
-    'ADDI'  : '1011 0011',
-    'SUBI'  : '1011 1011',
-    'ANDI'  : '1011 0111',
-    'ORI'   : '1011 0110',
-    'XORI'  : '1011 0101',
+    'ADDI'  : '0011 1011',
+    'SUBI'  : '0010 1011',
+    'ANDI'  : '0111 1011',
+    'ORI'   : '0110 1011',
+    'XORI'  : '0101 1011',
     'NANDI' : '1011 1011',
-    'NORI'  : '1011 1010',
-    'XNORI' : '1011 1001',
-    'MVHI'  : '1011 1001',
+    'NORI'  : '1010 1011',
+    'XNORI' : '1001 1011',
+    'MVHI'  : '1111 1011',
 
-    'LW'    : '1000 0000',
-    'SW'    : '1001 0000',
+    'LW'    : '0000 1001',
+    'SW'    : '0000 1000',
 
-    'F'     : '1110 0011',
-    'EQ'    : '1110 1100',
-    'LT'    : '1110 1101',
-    'LTE'   : '1110 0010',
-    'T'     : '1110 1111',
-    'NE'    : '1110 0000',
-    'GTE'   : '1110 0001',
+    'F'     : '0011 1110',
+    'EQ'    : '1100 1110',
+    'LT'    : '1101 1110',
+    'LTE'   : '0010 1110',
+    'T'     : '1111 1110',
+    'NE'    : '0000 1110',
+    'GTE'   : '0001 1110',
     'GT'    : '1110 1110',
 
-    'FI'    : '1010 0011',
-    'EQI'   : '1010 1100',
-    'LTI'   : '1010 1101',
-    'LTEI'  : '1010 0010',
-    'TI'    : '1010 1111',
-    'NEI'   : '1010 0000',
-    'GTEI'  : '1010 0001',
-    'GTI'   : '1010 1110',
+    'FI'    : '0011 1010',
+    'EQI'   : '1100 1010',
+    'LTI'   : '1101 1010',
+    'LTEI'  : '0010 1010',
+    'TI'    : '1111 1010',
+    'NEI'   : '0000 1010',
+    'GTEI'  : '0001 1010',
+    'GTI'   : '1110 1010',
 
-    'BF'    : '0000 0011',
-    'BEQ'   : '0000 1100',
-    'BLT'   : '0000 1101',
-    'BLTE'  : '0000 0010',
-    'BEQZ'  : '0000 1000',
-    'BLTZ'  : '0000 1001',
-    'BLTEZ' : '0000 0110',
-    'BT'    : '0000 1111',
+    'BF'    : '0011 0000',
+    'BEQ'   : '1100 0000',
+    'BLT'   : '1101 0000',
+    'BLTE'  : '0010 0000',
+    'BEQZ'  : '1000 0000',
+    'BLTZ'  : '1001 0000',
+    'BLTEZ' : '0110 0000',
+    'BT'    : '1111 0000',
     'BNE'   : '0000 0000',
-    'BGTE'  : '0000 0001',
-    'BGT'   : '0000 1110',
-    'BNEZ'  : '0000 0100',
-    'BGTEZ' : '0000 0101',
-    'BGTZ'  : '0000 1010',
+    'BGTE'  : '0001 0000',
+    'BGT'   : '1110 0000',
+    'BNEZ'  : '0100 0000',
+    'BGTEZ' : '0101 0000',
+    'BGTZ'  : '1010 0000',
 
-    'JAL'   : '0001 0000'
+    'JAL'   : '0000 0001'
 }
 
 registers = {'R%d' % i : i for i in range(16)}
@@ -243,35 +250,39 @@ for l1 in lines:
         elif (instr in opIRR and len(line) == 5):
             imm = line[2]
             if (str(imm) in labels):
-                imm = labels[imm]*4
+                imm = labels[imm]
                 if (instr in opPCRel):
-                    imm = imm - currAddr - 4
+                    print(str(hex(currAddr)) + " " + str(hex(imm)))
+                    imm = (imm*4 - currAddr*4 - 4)/4
             out = op + hex(getDecimal(str(imm)))[2:].zfill(4) \
                 + hexReg(line[3]) + hexReg(line[4])
         elif (instr in opIR and len(line) == 4):
             imm = line[2]
             if (str(imm) in labels):
-                imm = labels[imm]*4
-            out = op + hex(getDecimal(str(imm)))[2:].zfill(4) \
-                + hexReg(line[3]) + '0'
+                imm = labels[imm]
+                if (instr in opPCRel):
+                    print(str(hex(currAddr)) + " " + str(hex(imm)))
+                    imm = (imm*4 - currAddr*4 - 4)/4
+            immVal = getDecimal(str(imm), instr=='MVHI')
+            out = op + hex(immVal)[2:].zfill(4) + '0' + hexReg(line[3])
         elif ((instr == 'LW' or instr == 'JAL') and len(line) == 4):
             imm, r1 = line[2].split('(')
             r1 = r1.replace(')', '')
             if (str(imm) in labels):
-                imm = labels[imm]*4
+                imm = labels[imm]
             out = op + hex(getDecimal(str(imm)))[2:].zfill(4) + hexReg(r1) \
                 + hexReg(line[3])
         elif (instr == 'SW' and len(line) == 4):
             imm, r1 = line[2].split('(')
             r1 = r1.replace(')', '')
             if (str(imm) in labels):
-                imm = labels[imm]*4
+                imm = labels[imm]
             out = op + hex(getDecimal(str(imm)))[2:].zfill(4) \
                 + hexReg(line[3]) + hexReg(r1)
         elif (instr == '.WORD' and len(line) == 3):
             imm = line[2]
             if (str(imm) in labels):
-                imm = labels[imm]*4
+                imm = labels[imm]
             out = hex(getDecimal(imm))[2:].zfill(8)
         else:
             raise ValueError("Invalid instruction or parameters")
@@ -302,7 +313,7 @@ for i in deadAddr:
     mifOut += ['[' + hex(i[0])[2:].zfill(8) + '..' + hex(i[1])[2:].zfill(8)
                 + '] : DEAD;']
 
-mifOut += ['END;']
+mifOut += ['END']
 
 # for i in mifOut:
 #     print(i)
