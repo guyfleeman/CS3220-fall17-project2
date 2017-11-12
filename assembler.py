@@ -254,7 +254,7 @@ for l1 in lines:
             if (str(imm) in labels):
                 imm = labels[imm]
                 if (instr in opPCRel):
-                    print(str(hex(currAddr)) + " " + str(hex(imm)))
+                    # print(str(hex(currAddr)) + " " + str(hex(imm)))
                     imm = (imm*4 - currAddr*4 - 4)/4
             out = op + hex(getDecimal(str(imm)))[2:].zfill(4) \
                 + hexReg(line[3]) + hexReg(line[4])
@@ -263,7 +263,7 @@ for l1 in lines:
             if (str(imm) in labels):
                 imm = labels[imm]
                 if (instr in opPCRel):
-                    print(str(hex(currAddr)) + " " + str(hex(imm)))
+                    # print(str(hex(currAddr)) + " " + str(hex(imm)))
                     imm = (imm*4 - currAddr*4 - 4)/4
             immVal = getDecimal(str(imm), instr=='MVHI')
             out = op + hex(immVal)[2:].zfill(4) + '0' + hexReg(line[3])

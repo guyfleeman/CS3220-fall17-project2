@@ -96,16 +96,14 @@ always @(*) begin
                 sel_alu_sr2 = `ALU_SRC2_IMM;
                 sel_pc      = `PC_IN_PC4;
                 wr_reg      = 1'b1;
-                sel_reg_din = `REG_IN_ALU;
+                sel_reg_din = `REG_IN_DOUT;
             end
             `OP_JAL: begin
                 alu_fn      = {1'b0, `FN_ADD};
                 sel_alu_sr2 = `ALU_SRC2_IMM4;
                 sel_reg_din = `REG_IN_PC4;
-                if (alu_out == 32'b1)
-                    sel_pc  = `PC_IN_ALU;
-                else
-                    sel_pc  = `PC_IN_PC4;
+                wr_reg      = 1'b1;
+                sel_pc  = `PC_IN_ALU;
             end
         endcase
     end

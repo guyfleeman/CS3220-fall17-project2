@@ -15,7 +15,7 @@ wire [BIT_WIDTH-1:0] reg_data_out [(1<<REG_INDEX_WIDTH)-1:0];
 
 genvar i;
 generate
-    for (i=0; i<(1<<REG_INDEX_WIDTH); i=i+1) begin
+    for (i=0; i<(1<<REG_INDEX_WIDTH); i=i+1) begin : REGS
         wire en_write1;
         Register #(
             .BIT_WIDTH(BIT_WIDTH), .RESET_VALUE(RESET_VALUE)
@@ -27,6 +27,9 @@ generate
             .data_out (reg_data_out[i])
             );
         assign en_write1 = (dr_ind == i) ? en_write : 0;
+        // initial begin
+        //     $monitor("%d\t", regs.data_out);
+        // end
     end
 endgenerate
 

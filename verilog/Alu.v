@@ -2,8 +2,8 @@
 
 module Alu(
 input [4:0] alu_fn,
-input [BIT_WIDTH-1:0] in1, in2,
-output reg [BIT_WIDTH-1:0] out
+input signed [BIT_WIDTH-1:0] in1, in2,
+output reg signed [BIT_WIDTH-1:0] out
 );
 
 parameter BIT_WIDTH = 32;

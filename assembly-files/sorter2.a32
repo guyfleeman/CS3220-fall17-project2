@@ -22,7 +22,7 @@
 	ANDI	0,S0,S0
 	SW		OFSLEDR(GP),S0	; Turn off LEDR
 	SW		OFSLEDG(GP),S0	; Turn off LEDG
-	
+
 	; Initialize the array
 	ADDI 	Array,S0,T0			; T0 is CurPtr, set to start of array
 	ADDI	ArrayBytes,T0,T1	; T1 is EndPtr, set to end of array
@@ -34,7 +34,7 @@ Init:
 	ADDI	4,T0,T0			; Move to next element
 	BNE		Init,T0,T1		; if(CurPtr!=EndPtr) goto Init;
 	CALL	ChkAsc(S0)		; Call ChkAsc
-	
+
 	ADDI	ItNum,S0,S1		; We will keep the iteration count in S1
 	SW		OFSHEX(GP),S1	; Display loop counter
 MainLoop:
@@ -106,7 +106,7 @@ SortAscLoopI:
 	LW		0(A0),T0	; T0 will be equal to what should be in *i
 	; Inner loop (ptr "j" in A2) goes from i+4 to end
     ADDI    4,A0,A2
-SortAscLoopJ:  
+SortAscLoopJ:
     BEQ     SortAscEndJ,A2,A1
 	LW		0(A2),T1	; T1=*j
 	BLTE	SortAscNoSwap,T0,T1
@@ -121,7 +121,7 @@ SortAscEndJ:
 	BT		SortAscLoopI,A0,A1
 SortAscEndI:
 	RET
-	
+
 SortDesc:; SortDesc(beg,end)
 	; Sorts an array that starts at beg and ends at end
 	; Sorts in descending order (high to low values)
@@ -132,7 +132,7 @@ SortDescLoopI:
 	BEQ     SortDescEndI,T0,A1
 	; Inner loop (ptr "j" in T1) goes from i+4 to end
     ADDI    4,T0,T1
-SortDescLoopJ:  
+SortDescLoopJ:
     BEQ     SortDescEndJ,T1,A1
 	LW		0(T0),A2	; A2=*i
 	LW		0(T1),A3	; A3=*j

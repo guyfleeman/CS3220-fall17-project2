@@ -4,7 +4,7 @@
 module Register(
 input clk, reset, en_write,
 input[BIT_WIDTH - 1: 0] data_in,
-output reg [BIT_WIDTH - 1: 0] data_out
+output reg signed [BIT_WIDTH - 1: 0] data_out
 );
 
 parameter BIT_WIDTH = 32;
