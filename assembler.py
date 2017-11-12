@@ -8,9 +8,9 @@ if len(sys.argv) < 2:
     exit(1)
 
 nameout = os.path.splitext(sys.argv[1])[0] + '.mif'
+nameoutHex = os.path.splitext(sys.argv[1])[0] + '.hex'
 if len(sys.argv) >= 3:
     nameout = sys.argv[2]
-
 
 
 # Convert number to ensure it is decimal
@@ -128,7 +128,7 @@ except IOError as inst:
     exit(1)
 
 usedAddr += [[lastAddr, currAddr-1]]
-print(labels)
+# print(labels)
 
 opcodes = {
     'ADD'   : '0011 1111',
@@ -228,6 +228,8 @@ def hexReg(reg):
     except KeyError:
         raise ValueError("Invalid register value: " + str(reg))
 
+instrHex = {}
+
 for l1 in lines:
     try:
         line = l1[0]
@@ -287,6 +289,7 @@ for l1 in lines:
         else:
             raise ValueError("Invalid instruction or parameters")
 
+        instrHex[currAddr] = out;
         mifOut += [hex(currAddr)[2:].zfill(8) + ' : ' + out + ';']
         # print(out)
     except ValueError as inst:
@@ -321,3 +324,10 @@ mifOut += ['END']
 with open(nameout, 'w') as fout:
     for i in mifOut:
         fout.write(i+'\n')
+
+with open(nameoutHex, 'w') as fout:
+    for i in range(2048):
+        if i in instrHex:
+            fout.write(instrHex[i] + "\n")
+        else:
+            fout.write("0000DEAD" + "\n")

@@ -2,7 +2,11 @@
 
 .ORIG 0x40
 MVHI	STKTOP,SP
+
+.orig 0x80
+test:
 ADDI	STKTOP,SP,SP
+addi test,sp,sp
 ANDI	0,S0,S0
 SW		0(T0),S1
 RET
