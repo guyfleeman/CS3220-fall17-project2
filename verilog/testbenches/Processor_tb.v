@@ -46,8 +46,16 @@ initial begin
     // @(posedge clk);
     // @(posedge clk);
     // @(posedge clk);
-    //
-    // $finish;
+    // @(posedge clk);
+    // @(posedge clk);
+    // @(posedge clk);
+    // @(posedge clk);
+    // @(posedge clk);
+    // @(posedge clk);
+    // @(posedge clk);
+    // @(posedge clk);
+
+    $finish;
 end
 
 always #10 clk = ~clk;

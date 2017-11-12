@@ -1,17 +1,23 @@
 .ORIG 0x40
 
-ADDI    5,r0,r0
-ADD     r0,r0,r0
-ADDI    6,r0,r0
-ADD     r0,r0,r0
-ADDI    5,r0,r0
-ANDI    0xF,r0,r0
-ADDI    0,r0,r0
+;ADDI    5,r0,r0
+;ADD     r0,r0,r0
+;ADDI    6,r0,r0
+;ADD     r0,r0,r0
+;ADDI    5,r0,r0
+;ANDI    0xF,r0,r0
+;ADDI    0,r0,r0
 
-T       r1,r1,r1
-F       r1,r1,r1
-GT      r1,r0,r2
-ADDI    3,r4,r1
+;T       r1,r1,r1
+;F       r1,r1,r1
+;GT      r1,r0,r2
+;ADDI    3,r4,r1
 
-SUB     r0,r1,r2
-ADDI    -4,r2,r2
+;SUB     r0,r1,r2
+;ADDI    -4,r2,r2
+
+addi    10,r1,r1
+start:
+addi    2,r0,r0
+BLT     start,r1,r0
+addi    7,r0,r2

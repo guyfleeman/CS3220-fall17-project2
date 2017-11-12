@@ -13,7 +13,7 @@ always @(*) begin
         1: out <= in1;
         2: out <= in2;
         3: out <= in3;
-        default: out <= 32'hzzzzzzzz; // TODO: FIX so BIT_WIDTH
+        default: out <= {BIT_WIDTH{1'bz}};
     endcase
 end
 
