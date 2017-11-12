@@ -1,5 +1,7 @@
 `timescale 1ns/1ps
 
+`include "Processor.v"
+
 module Processor_tb;
 
 parameter DBITS = 32;
@@ -17,6 +19,7 @@ Processor #(
 );
 
 initial begin
+    $readmemh("../../assembly-files/test.hex", processor.instMem.data);
     $dumpfile("Processor.vcd");
     $dumpvars(0, Processor_tb);
 end

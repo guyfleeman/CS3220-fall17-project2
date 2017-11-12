@@ -1,3 +1,5 @@
+`include "Register.v"
+
 module RegisterFile(
 input clk, reset, en_write,
 input [REG_INDEX_WIDTH-1:0] sr1_ind, sr2_ind, dr_ind,

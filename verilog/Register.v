@@ -1,3 +1,6 @@
+`ifndef _REGISTER_
+`define _REGISTER_
+
 module Register(
 input clk, reset, en_write,
 input[BIT_WIDTH - 1: 0] data_in,
@@ -15,3 +18,5 @@ always @(posedge clk) begin
 end
 
 endmodule
+
+`endif

@@ -14,3 +14,4 @@ GT      r1,r0,r2
 ADDI    3,r4,r1
 
 SUB     r0,r1,r2
+ADDI    -4,r2,r2

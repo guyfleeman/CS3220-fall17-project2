@@ -1,3 +1,11 @@
+`include "Alu.v"
+`include "Decoder.v"
+`include "InstMemory.v"
+`include "Mux4to1.v"
+`include "Register.v"
+`include "RegisterFile.v"
+`include "SignExtension.v"
+
 module Processor (
 input clk,
 input reset,
