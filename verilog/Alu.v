@@ -18,6 +18,7 @@ always @(*) begin
         `FN_NAND : out = in1 ~& in2;
         `FN_NOR  : out = in1 ~| in2;
         `FN_XNOR : out = in1 ~^ in2;
+        `FN_MVHI : out = {in2[BIT_WIDTH-1:16],16'h0000};
 
         `FN_F    : out = 0;
         `FN_EQ   : out = (in1 == in2) ? 1 : 0;

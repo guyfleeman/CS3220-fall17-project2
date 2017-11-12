@@ -6,11 +6,20 @@
 `include "RegisterFile.v"
 `include "SignExtension.v"
 `include "Memory.v"
+`include "SevenSeg.v"
 
 module Processor (
 input clk,
 input reset,
-output [INST_BIT_WIDTH - 1: 0] inst_word_out // For testing
+output [INST_BIT_WIDTH - 1: 0] inst_word_out, // For testing
+
+input [3:0] key_in,
+input [9:0] sw_in,
+output [6:0] hex0_out,
+output [6:0] hex1_out,
+output [6:0] hex2_out,
+output [6:0] hex3_out,
+output [9:0] ledr_out
 );
 
 parameter DBITS                 = 32;
@@ -149,8 +158,7 @@ Alu #(
     .out (alu_out)
 );
 
-
-
+wire [15:0] mmio_hex;
 wire [DBITS-1:0] data_out;
 Memory #(
     .MEM_INIT_FILE (DMEM_INIT_FILE),
@@ -160,10 +168,19 @@ Memory #(
     .clk (clk),
     .reset (reset),
     .en_write (wr_mem),
-    .addr (alu_out[DMEM_ADDR_BIT_WIDTH + DMEM_WORD_BITS - 1: DMEM_WORD_BITS]),
+    .addr (alu_out[DBITS - 1: DMEM_WORD_BITS]),
     .data_in (regs_out2),
-    .data_out (data_out)
+    .data_out (data_out),
+
+    .mmio_key_in (key_in),
+    .mmio_sw_in (sw_in),
+    .mmio_hex_out (mmio_hex),
+    .mmio_ledr_out (ledr_out)
 );
 
+SevenSeg sseg0 (.dIn (mmio_hex[3:0]),   .dOut (hex0_out));
+SevenSeg sseg1 (.dIn (mmio_hex[7:4]),   .dOut (hex1_out));
+SevenSeg sseg2 (.dIn (mmio_hex[11:8]),  .dOut (hex2_out));
+SevenSeg sseg3 (.dIn (mmio_hex[15:12]), .dOut (hex3_out));
 
 endmodule

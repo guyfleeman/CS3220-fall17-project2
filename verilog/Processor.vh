@@ -18,6 +18,7 @@
 `define FN_NAND     5'b01011
 `define FN_NOR      5'b01010
 `define FN_XNOR     5'b01001
+`define FN_MVHI     5'b01111
 
 `define FN_F        5'b10011
 `define FN_EQ       5'b11100
@@ -43,5 +44,11 @@
 `define PC_IN_PC        2'b11
 
 `define DEAD            16'hDEAD
+
+`define ADDR_KEY        32'hF0000010 >> 2
+`define ADDR_SW         32'hF0000014 >> 2
+`define ADDR_HEX        32'hF0000000 >> 2
+`define ADDR_LEDR       32'hF0000004 >> 2
+`define ADDR_LEDG       32'hF0000008 >> 2
 
 `endif
