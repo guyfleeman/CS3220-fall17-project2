@@ -4,15 +4,15 @@ ADDRESS_RADIX=HEX;
 DATA_RADIX=HEX;
 CONTENT BEGIN
 [00000000..0000000f] : DEAD;
--- @ 0x00000040 : 	MVHI	SP,STKTOP
-00000010 : b92000e0;
--- @ 0x00000044 : 	ADDI	SP,SP,STKTOP
-00000011 : b32000ee;
--- @ 0x0000004c : 	ANDI	S0,S0,0
-00000013 : b7200066;
--- @ 0x00000064 : 	SW	S1,0(T0)		
-00000019 : 90200074;
--- @ 0x00000190 : 	JAL  	R9,0(RA)
-00000064 : 100000f9;
+-- @ 0x00000040 : 	MVHI	STKTOP,SP
+00000010 : fb00000e;  						-- The value after : is stored at address 0x40, 0x41, 0x42, 0x43 (You can access the 32-bit data by sending address 0x40 to memory)
+-- @ 0x00000044 : 	ADDI	STKTOP,SP,SP
+00000011 : 3b2000ee; 						-- The value after : is stored at address 0x44, 0x45, 0x46, 0x47 (You can access the 32-bit data by sending address 0x44 to memory)
+-- @ 0x0000004c : 	ANDI	0,S0,S0
+00000013 : 7b000066;
+-- @ 0x00000064 : 	SW		0(T0),S1			
+00000019 : 09000074;			
+-- @ 0x00000190 : 	JAL  	0(RA),R9
+00000064 : 010000f9;
 [0065..07ff] : DEAD;
 END;
