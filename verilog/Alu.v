@@ -1,6 +1,6 @@
 module Alu(
 input clk, reset,
-input [4:0] aluOP,
+input [4:0] aluFN,
 input [BIT_WIDTH-1:0] in1, in2,
 output reg [BIT_WIDTH-1:0] out
 );
@@ -25,8 +25,8 @@ localparam NE  = 5'b10000;
 localparam GTE = 5'b10001;
 localparam GT  = 5'b11110;
 
-always @(posedge clk) begin
-    case (aluOP)
+always @(*) begin
+    case (aluFN)
         ADD  : out <= in1 + in2;
         SUB  : out <= in1 - in2;
         AND  : out <= in1 & in2;

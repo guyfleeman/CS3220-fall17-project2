@@ -1,14 +1,14 @@
 module Decoder(
 input clk, reset,
 input [DATA_BIT_WIDTH-1:0] data,
-output reg [4:0] aluOP,
+output reg [4:0] aluFN,
 output reg [REG_INDEX_WIDTH-1:0] src_reg1, src_reg2, dest_reg,
 output reg [IMM_BIT_WIDTH-1:0] imm,
-output reg [2:0] aluSrc2Sel
+output reg [1:0] aluSrc2Sel,
+output reg wr_en
 );
 
-parameter REG_INDEX_WIDTH = 4;
-
+localparam REG_INDEX_WIDTH = 4;
 localparam DATA_BIT_WIDTH = 32;
 localparam IMM_BIT_WIDTH = 16;
 
@@ -27,30 +27,35 @@ wire [3:0] opcode;
 assign fn = data[31:28];
 assign opcode = data[27:24];
 
-always @(clk) begin
+always @(*) begin
     src_reg1 <= data[7:4];
     src_reg2 <= data[11:8];
     dest_reg <= data[3:0];
     imm <= data[23:8];
+    wr_en = 1'b1;
 end
 
-always @(clk) begin
-    case (fn)
+always @(*) begin
+    case (opcode)
         OP1_ALUR: begin
-            aluOP <= {1'b0, opcode};
+            aluFN <= {1'b0, fn};
             aluSrc2Sel <= 2'b00;
         end
         OP1_ALUI: begin
-            aluOP <= {1'b0, opcode};
+            aluFN <= {1'b0, fn};
             aluSrc2Sel <= 2'b01;
         end
         OP1_CMPR: begin
-            aluOP <= {1'b1, opcode};
+            aluFN <= {1'b1, fn};
             aluSrc2Sel <= 2'b00;
         end
         OP1_CMPI: begin
-            aluOP <= {1'b1, opcode};
+            aluFN <= {1'b1, fn};
             aluSrc2Sel <= 2'b01;
+        end
+        default: begin
+            aluFN <= 5'bzzzzz;
+            aluSrc2Sel <= 2'bzz;
         end
     endcase
 end
