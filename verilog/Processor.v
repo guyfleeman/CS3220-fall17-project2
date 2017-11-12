@@ -1,6 +1,7 @@
 module Processor (
 input clk,
-input reset
+input reset,
+output [IMEM_DATA_BIT_WIDTH - 1: 0] inst_word_out // For testing
 );
 
 parameter DBITS                 = 32;
@@ -18,7 +19,7 @@ localparam IMEM_PC_BITS_LO       = 2;
 
 // Create PC and its logic
 wire pcWrtEn = 1'b1;
-wire [DBITS - 1: 0] pcIn;
+reg [DBITS - 1: 0] pcIn;
 wire [DBITS - 1: 0] pcOut;
 
 Register #(
@@ -27,7 +28,18 @@ Register #(
     clk, reset, pcWrtEn, pcIn, pcOut
 );
 
-assign pcIn = pcOut + 4;
+always @(*) begin
+    if (instWord == 32'h0000DEAD) begin
+        pcIn <= pcOut;
+        // $finish;
+    end else begin
+        pcIn <= pcOut + 4;
+    end
+end
+
+assign inst_word_out = instWord;
+
+// assign pcIn = (instWord != 32'h0000DEAD) ? pcOut + 4 : pcOut;
 
 wire [IMEM_DATA_BIT_WIDTH - 1: 0] instWord;
 InstMemory #(
