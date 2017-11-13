@@ -12,8 +12,6 @@ parameter DATA_BIT_WIDTH = 32;
 parameter N_WORDS = (1 << ADDR_BIT_WIDTH);
 
 (* ram_init_file = MEM_INIT_FILE *)
-
-reg [15:0] test1;
 reg[DATA_BIT_WIDTH - 1: 0] data[0: N_WORDS - 1];
 
 assign dataOut = data[addr];

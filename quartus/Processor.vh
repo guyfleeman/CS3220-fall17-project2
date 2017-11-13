@@ -37,6 +37,7 @@
 `define REG_IN_PC4      2'b00
 `define REG_IN_DOUT     2'b01
 `define REG_IN_ALU      2'b10
+`define REG_IN_IMM		2'b11
 
 `define PC_IN_IMM4      2'b00
 `define PC_IN_ALU       2'b01

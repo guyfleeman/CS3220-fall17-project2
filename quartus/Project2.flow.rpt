@@ -1,5 +1,5 @@
 Flow report for Project2
-Sun Nov 12 20:42:02 2017
+Sun Nov 12 22:00:07 2017
 Quartus II 32-bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -40,15 +40,15 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------+
 ; Flow Summary                                                                 ;
 +---------------------------------+--------------------------------------------+
-; Flow Status                     ; Successful - Sun Nov 12 20:42:02 2017      ;
+; Flow Status                     ; Successful - Sun Nov 12 22:00:07 2017      ;
 ; Quartus II 32-bit Version       ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                   ; Project2                                   ;
 ; Top-level Entity Name           ; Project2                                   ;
 ; Family                          ; Cyclone V                                  ;
 ; Device                          ; 5CEBA4F23C7                                ;
 ; Timing Models                   ; Final                                      ;
-; Logic utilization (in ALMs)     ; 1 / 18,480 ( < 1 % )                       ;
-; Total registers                 ; 0                                          ;
+; Logic utilization (in ALMs)     ; 12,089 / 18,480 ( 65 % )                   ;
+; Total registers                 ; 23258                                      ;
 ; Total pins                      ; 54 / 224 ( 24 % )                          ;
 ; Total virtual pins              ; 0                                          ;
 ; Total block memory bits         ; 0 / 3,153,920 ( 0 % )                      ;
@@ -57,7 +57,7 @@ applicable agreement for further details.
 ; Total HSSI PMA RX Deserializers ; 0                                          ;
 ; Total HSSI TX PCSs              ; 0                                          ;
 ; Total HSSI TX Channels          ; 0                                          ;
-; Total PLLs                      ; 0 / 4 ( 0 % )                              ;
+; Total PLLs                      ; 1 / 4 ( 25 % )                             ;
 ; Total DLLs                      ; 0 / 4 ( 0 % )                              ;
 +---------------------------------+--------------------------------------------+
 
@@ -67,7 +67,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/12/2017 20:41:12 ;
+; Start date & time ; 11/12/2017 21:47:50 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Project2            ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ applicable agreement for further details.
 +---------------------------------------------------+--------------------------------+---------------+-------------+------------+
 ; Assignment Name                                   ; Value                          ; Default Value ; Entity Name ; Section Id ;
 +---------------------------------------------------+--------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID                             ; 70465356487483.151053727214688 ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID                             ; 70465356487483.151054126908548 ; --            ; --          ; --         ;
 ; FITTER_EFFORT                                     ; Standard Fit                   ; Auto Fit      ; --          ; --         ;
 ; IP_TOOL_ENV                                       ; mwpim                          ; --            ; PLL         ; --         ;
 ; IP_TOOL_ENV                                       ; mwpim                          ; --            ; PLL         ; --         ;
@@ -93,6 +93,10 @@ applicable agreement for further details.
 ; MIN_CORE_JUNCTION_TEMP                            ; 0                              ; --            ; --          ; --         ;
 ; MISC_FILE                                         ; PLL.cmp                        ; --            ; --          ; --         ;
 ; MISC_FILE                                         ; PLL_sim/PLL.vo                 ; --            ; --          ; --         ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS                    ; Half Signal Swing              ; --            ; --          ; --         ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS                    ; Half Signal Swing              ; --            ; --          ; --         ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS                   ; Half Vccio                     ; --            ; --          ; --         ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS                   ; Half Vccio                     ; --            ; --          ; --         ;
 ; PARTITION_COLOR                                   ; 16764057                       ; --            ; --          ; Top        ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL               ; PLACEMENT_AND_ROUTING          ; --            ; --          ; Top        ;
 ; PARTITION_NETLIST_TYPE                            ; SOURCE                         ; --            ; --          ; Top        ;
@@ -115,10 +119,10 @@ applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:03     ; 1.0                     ; 537 MB              ; 00:00:03                           ;
-; Fitter               ; 00:00:35     ; 1.0                     ; 840 MB              ; 00:00:35                           ;
-; Assembler            ; 00:00:08     ; 1.0                     ; 477 MB              ; 00:00:08                           ;
-; Total                ; 00:00:46     ; --                      ; --                  ; 00:00:46                           ;
+; Analysis & Synthesis ; 00:01:34     ; 1.0                     ; 710 MB              ; 00:01:34                           ;
+; Fitter               ; 00:10:09     ; 1.0                     ; 1207 MB             ; 00:10:09                           ;
+; Assembler            ; 00:00:18     ; 1.0                     ; 578 MB              ; 00:00:18                           ;
+; Total                ; 00:12:01     ; --                      ; --                  ; 00:12:01                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

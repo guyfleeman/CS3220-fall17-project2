@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Project2
-Sun Nov 12 20:41:15 2017
+Sun Nov 12 21:49:28 2017
 Quartus II 32-bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -14,40 +14,39 @@ Quartus II 32-bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis IP Cores Summary
-  9. Registers Removed During Synthesis
- 10. Removed Registers Triggering Further Register Optimizations
- 11. General Register Statistics
- 12. Parameter Settings for User Entity Instance: Top-level Entity: |Project2
- 13. Parameter Settings for User Entity Instance: PLL:PLL_inst|PLL_0002:pll_inst|altera_pll:altera_pll_i
- 14. Parameter Settings for User Entity Instance: Processor:processor
- 15. Parameter Settings for User Entity Instance: Processor:processor|Register:pc
- 16. Parameter Settings for User Entity Instance: Processor:processor|InstMemory:instMem
- 17. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs
- 18. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[0].regs
- 19. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[1].regs
- 20. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[2].regs
- 21. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[3].regs
- 22. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[4].regs
- 23. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[5].regs
- 24. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[6].regs
- 25. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[7].regs
- 26. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[8].regs
- 27. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[9].regs
- 28. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[10].regs
- 29. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[11].regs
- 30. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[12].regs
- 31. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[13].regs
- 32. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[14].regs
- 33. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[15].regs
- 34. Parameter Settings for User Entity Instance: Processor:processor|SignExtension:sign_extend
- 35. Parameter Settings for User Entity Instance: Processor:processor|Alu:alu
- 36. Parameter Settings for User Entity Instance: Processor:processor|Memory:data_memory
- 37. Port Connectivity Checks: "Processor:processor|Memory:data_memory"
- 38. Port Connectivity Checks: "Processor:processor|Register:pc"
- 39. Port Connectivity Checks: "Processor:processor"
- 40. Elapsed Time Per Partition
- 41. Analysis & Synthesis Messages
- 42. Analysis & Synthesis Suppressed Messages
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Parameter Settings for User Entity Instance: Top-level Entity: |Project2
+ 12. Parameter Settings for User Entity Instance: PLL:PLL_inst|PLL_0002:pll_inst|altera_pll:altera_pll_i
+ 13. Parameter Settings for User Entity Instance: Processor:processor
+ 14. Parameter Settings for User Entity Instance: Processor:processor|Register:pc
+ 15. Parameter Settings for User Entity Instance: Processor:processor|InstMemory:instMem
+ 16. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs
+ 17. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[0].regs
+ 18. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[1].regs
+ 19. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[2].regs
+ 20. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[3].regs
+ 21. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[4].regs
+ 22. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[5].regs
+ 23. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[6].regs
+ 24. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[7].regs
+ 25. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[8].regs
+ 26. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[9].regs
+ 27. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[10].regs
+ 28. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[11].regs
+ 29. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[12].regs
+ 30. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[13].regs
+ 31. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[14].regs
+ 32. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[15].regs
+ 33. Parameter Settings for User Entity Instance: Processor:processor|SignExtension:sign_extend
+ 34. Parameter Settings for User Entity Instance: Processor:processor|Alu:alu
+ 35. Parameter Settings for User Entity Instance: Processor:processor|Memory:data_memory
+ 36. Port Connectivity Checks: "Processor:processor|Memory:data_memory"
+ 37. Port Connectivity Checks: "Processor:processor|Register:pc"
+ 38. Port Connectivity Checks: "Processor:processor"
+ 39. Elapsed Time Per Partition
+ 40. Analysis & Synthesis Messages
+ 41. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -73,13 +72,13 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                 ;
 +---------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Nov 12 20:41:15 2017      ;
+; Analysis & Synthesis Status     ; Successful - Sun Nov 12 21:49:27 2017      ;
 ; Quartus II 32-bit Version       ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                   ; Project2                                   ;
 ; Top-level Entity Name           ; Project2                                   ;
 ; Family                          ; Cyclone V                                  ;
 ; Logic utilization (in ALMs)     ; N/A                                        ;
-; Total registers                 ; 0                                          ;
+; Total registers                 ; 23112                                      ;
 ; Total pins                      ; 54                                         ;
 ; Total virtual pins              ; 0                                          ;
 ; Total block memory bits         ; 0                                          ;
@@ -88,7 +87,7 @@ applicable agreement for further details.
 ; Total HSSI PMA RX Deserializers ; 0                                          ;
 ; Total HSSI TX PCSs              ; 0                                          ;
 ; Total HSSI TX Channels          ; 0                                          ;
-; Total PLLs                      ; 0                                          ;
+; Total PLLs                      ; 1                                          ;
 ; Total DLLs                      ; 0                                          ;
 +---------------------------------+--------------------------------------------+
 
@@ -191,62 +190,91 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                          ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                      ; Library ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------+---------+
-; SCProc-Controller.v              ; yes             ; User Verilog HDL File        ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/SCProc-Controller.v ;         ;
-; RegisterFile.v                   ; yes             ; User Verilog HDL File        ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/RegisterFile.v      ;         ;
-; Processor.v                      ; yes             ; User Verilog HDL File        ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/Processor.v         ;         ;
-; Mux4to1.v                        ; yes             ; User Verilog HDL File        ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/Mux4to1.v           ;         ;
-; Memory.v                         ; yes             ; User Verilog HDL File        ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/Memory.v            ;         ;
-; Decoder.v                        ; yes             ; User Verilog HDL File        ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/Decoder.v           ;         ;
-; Alu.v                            ; yes             ; User Verilog HDL File        ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/Alu.v               ;         ;
-; SignExtension.v                  ; yes             ; User Verilog HDL File        ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/SignExtension.v     ;         ;
-; SevenSeg.v                       ; yes             ; User Verilog HDL File        ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/SevenSeg.v          ;         ;
-; Register.v                       ; yes             ; User Verilog HDL File        ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/Register.v          ;         ;
-; Project2.v                       ; yes             ; User Verilog HDL File        ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/Project2.v          ;         ;
-; InstMemory.v                     ; yes             ; User Verilog HDL File        ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/InstMemory.v        ;         ;
-; PLL.v                            ; yes             ; User Wizard-Generated File   ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/PLL.v               ; PLL     ;
-; PLL/PLL_0002.v                   ; yes             ; User Verilog HDL File        ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/PLL/PLL_0002.v      ; PLL     ;
-; processor.vh                     ; yes             ; Auto-Found Unspecified File  ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/processor.vh        ;         ;
-; altera_pll.v                     ; yes             ; Megafunction                 ; d:/altera/13.1/quartus/libraries/megafunctions/altera_pll.v                       ;         ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                         ;
++----------------------------------+-----------------+-----------------------------+-----------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                   ; File Name with Absolute Path                                                      ; Library ;
++----------------------------------+-----------------+-----------------------------+-----------------------------------------------------------------------------------+---------+
+; Processor.vh                     ; yes             ; User Unspecified File       ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/Processor.vh        ;         ;
+; SCProc-Controller.v              ; yes             ; User Verilog HDL File       ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/SCProc-Controller.v ;         ;
+; RegisterFile.v                   ; yes             ; User Verilog HDL File       ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/RegisterFile.v      ;         ;
+; Processor.v                      ; yes             ; User Verilog HDL File       ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/Processor.v         ;         ;
+; Mux4to1.v                        ; yes             ; User Verilog HDL File       ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/Mux4to1.v           ;         ;
+; Memory.v                         ; yes             ; User Verilog HDL File       ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/Memory.v            ;         ;
+; Decoder.v                        ; yes             ; User Verilog HDL File       ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/Decoder.v           ;         ;
+; Alu.v                            ; yes             ; User Verilog HDL File       ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/Alu.v               ;         ;
+; SignExtension.v                  ; yes             ; User Verilog HDL File       ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/SignExtension.v     ;         ;
+; SevenSeg.v                       ; yes             ; User Verilog HDL File       ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/SevenSeg.v          ;         ;
+; Register.v                       ; yes             ; User Verilog HDL File       ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/Register.v          ;         ;
+; Project2.v                       ; yes             ; User Verilog HDL File       ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/Project2.v          ;         ;
+; InstMemory.v                     ; yes             ; User Verilog HDL File       ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/InstMemory.v        ;         ;
+; PLL.v                            ; yes             ; User Wizard-Generated File  ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/PLL.v               ; PLL     ;
+; PLL/PLL_0002.v                   ; yes             ; User Verilog HDL File       ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/PLL/PLL_0002.v      ; PLL     ;
+; altera_pll.v                     ; yes             ; Megafunction                ; d:/altera/13.1/quartus/libraries/megafunctions/altera_pll.v                       ;         ;
++----------------------------------+-----------------+-----------------------------+-----------------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary         ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-; Estimate of Logic utilization (ALMs needed) ; 0     ;
-;                                             ;       ;
-; Combinational ALUT usage for logic          ; 0     ;
-;     -- 7 input functions                    ; 0     ;
-;     -- 6 input functions                    ; 0     ;
-;     -- 5 input functions                    ; 0     ;
-;     -- 4 input functions                    ; 0     ;
-;     -- <=3 input functions                  ; 0     ;
-;                                             ;       ;
-; Dedicated logic registers                   ; 0     ;
-;                                             ;       ;
-; I/O pins                                    ; 54    ;
-; Total DSP Blocks                            ; 0     ;
-; Maximum fan-out node                        ; SW[0] ;
-; Maximum fan-out                             ; 1     ;
-; Total fan-out                               ; 54    ;
-; Average fan-out                             ; 0.50  ;
-+---------------------------------------------+-------+
++---------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                                         ;
++---------------------------------------------+-----------------------------------------------------------------------+
+; Resource                                    ; Usage                                                                 ;
++---------------------------------------------+-----------------------------------------------------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 16792                                                                 ;
+;                                             ;                                                                       ;
+; Combinational ALUT usage for logic          ; 10604                                                                 ;
+;     -- 7 input functions                    ; 97                                                                    ;
+;     -- 6 input functions                    ; 7986                                                                  ;
+;     -- 5 input functions                    ; 2251                                                                  ;
+;     -- 4 input functions                    ; 126                                                                   ;
+;     -- <=3 input functions                  ; 144                                                                   ;
+;                                             ;                                                                       ;
+; Dedicated logic registers                   ; 23112                                                                 ;
+;                                             ;                                                                       ;
+; I/O pins                                    ; 54                                                                    ;
+; Total DSP Blocks                            ; 0                                                                     ;
+; Total PLLs                                  ; 1                                                                     ;
+;     -- PLLs                                 ; 1                                                                     ;
+;                                             ;                                                                       ;
+; Maximum fan-out node                        ; PLL:PLL_inst|PLL_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
+; Maximum fan-out                             ; 23133                                                                 ;
+; Total fan-out                               ; 130268                                                                ;
+; Average fan-out                             ; 3.85                                                                  ;
++---------------------------------------------+-----------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                       ;
-+----------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
-+----------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------+--------------+
-; |Project2                  ; 0 (0)             ; 0 (0)        ; 0                 ; 0          ; 54   ; 0            ; |Project2           ; work         ;
-+----------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                   ;
++------------------------------------+-------------------+---------------+-------------------+------------+------+--------------+------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node         ; LC Combinationals ; LC Registers  ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                    ; Library Name ;
++------------------------------------+-------------------+---------------+-------------------+------------+------+--------------+------------------------------------------------------------------------+--------------+
+; |Project2                          ; 10604 (0)         ; 23112 (0)     ; 0                 ; 0          ; 54   ; 0            ; |Project2                                                              ; work         ;
+;    |PLL:PLL_inst|                  ; 0 (0)             ; 0 (0)         ; 0                 ; 0          ; 0    ; 0            ; |Project2|PLL:PLL_inst                                                 ; PLL          ;
+;       |PLL_0002:pll_inst|          ; 0 (0)             ; 0 (0)         ; 0                 ; 0          ; 0    ; 0            ; |Project2|PLL:PLL_inst|PLL_0002:pll_inst                               ; PLL          ;
+;          |altera_pll:altera_pll_i| ; 0 (0)             ; 0 (0)         ; 0                 ; 0          ; 0    ; 0            ; |Project2|PLL:PLL_inst|PLL_0002:pll_inst|altera_pll:altera_pll_i       ; work         ;
+;    |Processor:processor|           ; 10604 (265)       ; 23112 (0)     ; 0                 ; 0          ; 0    ; 0            ; |Project2|Processor:processor                                          ; work         ;
+;       |Alu:alu|                    ; 264 (264)         ; 0 (0)         ; 0                 ; 0          ; 0    ; 0            ; |Project2|Processor:processor|Alu:alu                                  ; work         ;
+;       |Decoder:decoder|            ; 41 (41)           ; 0 (0)         ; 0                 ; 0          ; 0    ; 0            ; |Project2|Processor:processor|Decoder:decoder                          ; work         ;
+;       |InstMemory:instMem|         ; 108 (108)         ; 0 (0)         ; 0                 ; 0          ; 0    ; 0            ; |Project2|Processor:processor|InstMemory:instMem                       ; work         ;
+;       |Memory:data_memory|         ; 9659 (9659)       ; 22568 (22568) ; 0                 ; 0          ; 0    ; 0            ; |Project2|Processor:processor|Memory:data_memory                       ; work         ;
+;       |Register:pc|                ; 5 (5)             ; 32 (32)       ; 0                 ; 0          ; 0    ; 0            ; |Project2|Processor:processor|Register:pc                              ; work         ;
+;       |RegisterFile:regs|          ; 262 (240)         ; 512 (0)       ; 0                 ; 0          ; 0    ; 0            ; |Project2|Processor:processor|RegisterFile:regs                        ; work         ;
+;          |Register:REGS[0].regs|   ; 2 (2)             ; 32 (32)       ; 0                 ; 0          ; 0    ; 0            ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[0].regs  ; work         ;
+;          |Register:REGS[10].regs|  ; 1 (1)             ; 32 (32)       ; 0                 ; 0          ; 0    ; 0            ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[10].regs ; work         ;
+;          |Register:REGS[11].regs|  ; 1 (1)             ; 32 (32)       ; 0                 ; 0          ; 0    ; 0            ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[11].regs ; work         ;
+;          |Register:REGS[12].regs|  ; 1 (1)             ; 32 (32)       ; 0                 ; 0          ; 0    ; 0            ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[12].regs ; work         ;
+;          |Register:REGS[13].regs|  ; 1 (1)             ; 32 (32)       ; 0                 ; 0          ; 0    ; 0            ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[13].regs ; work         ;
+;          |Register:REGS[14].regs|  ; 1 (1)             ; 32 (32)       ; 0                 ; 0          ; 0    ; 0            ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[14].regs ; work         ;
+;          |Register:REGS[15].regs|  ; 1 (1)             ; 32 (32)       ; 0                 ; 0          ; 0    ; 0            ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[15].regs ; work         ;
+;          |Register:REGS[1].regs|   ; 2 (2)             ; 32 (32)       ; 0                 ; 0          ; 0    ; 0            ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[1].regs  ; work         ;
+;          |Register:REGS[2].regs|   ; 2 (2)             ; 32 (32)       ; 0                 ; 0          ; 0    ; 0            ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[2].regs  ; work         ;
+;          |Register:REGS[3].regs|   ; 2 (2)             ; 32 (32)       ; 0                 ; 0          ; 0    ; 0            ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[3].regs  ; work         ;
+;          |Register:REGS[4].regs|   ; 2 (2)             ; 32 (32)       ; 0                 ; 0          ; 0    ; 0            ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[4].regs  ; work         ;
+;          |Register:REGS[5].regs|   ; 1 (1)             ; 32 (32)       ; 0                 ; 0          ; 0    ; 0            ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[5].regs  ; work         ;
+;          |Register:REGS[6].regs|   ; 1 (1)             ; 32 (32)       ; 0                 ; 0          ; 0    ; 0            ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[6].regs  ; work         ;
+;          |Register:REGS[7].regs|   ; 1 (1)             ; 32 (32)       ; 0                 ; 0          ; 0    ; 0            ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[7].regs  ; work         ;
+;          |Register:REGS[8].regs|   ; 1 (1)             ; 32 (32)       ; 0                 ; 0          ; 0    ; 0            ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[8].regs  ; work         ;
+;          |Register:REGS[9].regs|   ; 2 (2)             ; 32 (32)       ; 0                 ; 0          ; 0    ; 0            ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[9].regs  ; work         ;
++------------------------------------+-------------------+---------------+-------------------+------------+------+--------------+------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -260,119 +288,60 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------+--------------+---------+--------------+--------------+------------------------------------------+------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                         ;
-+------------------------------------------------------------------------------+---------------------------------------------+
-; Register name                                                                ; Reason for Removal                          ;
-+------------------------------------------------------------------------------+---------------------------------------------+
-; Processor:processor|Memory:data_memory|mmio_hex[0,1]                         ; Stuck at GND due to stuck port clock_enable ;
-; Processor:processor|Memory:data_memory|mmio_ledr[0..9]                       ; Stuck at GND due to stuck port clock_enable ;
-; Processor:processor|Memory:data_memory|mmio_hex[2..15]                       ; Stuck at GND due to stuck port clock_enable ;
-; Processor:processor|Memory:data_memory|mmio_sw[4..9]                         ; Lost fanout                                 ;
-; Processor:processor|Memory:data_memory|mmio_key[3]                           ; Lost fanout                                 ;
-; Processor:processor|Memory:data_memory|mmio_sw[3]                            ; Lost fanout                                 ;
-; Processor:processor|Memory:data_memory|mmio_key[2]                           ; Lost fanout                                 ;
-; Processor:processor|Memory:data_memory|mmio_sw[2]                            ; Lost fanout                                 ;
-; Processor:processor|Memory:data_memory|mmio_key[1]                           ; Lost fanout                                 ;
-; Processor:processor|Memory:data_memory|mmio_sw[1]                            ; Lost fanout                                 ;
-; Processor:processor|Memory:data_memory|mmio_key[0]                           ; Lost fanout                                 ;
-; Processor:processor|Memory:data_memory|mmio_sw[0]                            ; Lost fanout                                 ;
-; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[0..31] ; Lost fanout                                 ;
-; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[0..31] ; Lost fanout                                 ;
-; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[0..31] ; Lost fanout                                 ;
-; Processor:processor|RegisterFile:regs|Register:REGS[12].regs|data_out[0..31] ; Lost fanout                                 ;
-; Processor:processor|RegisterFile:regs|Register:REGS[11].regs|data_out[0..31] ; Lost fanout                                 ;
-; Processor:processor|RegisterFile:regs|Register:REGS[10].regs|data_out[0..31] ; Lost fanout                                 ;
-; Processor:processor|RegisterFile:regs|Register:REGS[9].regs|data_out[0..31]  ; Lost fanout                                 ;
-; Processor:processor|RegisterFile:regs|Register:REGS[8].regs|data_out[0..31]  ; Lost fanout                                 ;
-; Processor:processor|RegisterFile:regs|Register:REGS[7].regs|data_out[0..31]  ; Lost fanout                                 ;
-; Processor:processor|RegisterFile:regs|Register:REGS[6].regs|data_out[0..31]  ; Lost fanout                                 ;
-; Processor:processor|RegisterFile:regs|Register:REGS[5].regs|data_out[0..31]  ; Lost fanout                                 ;
-; Processor:processor|RegisterFile:regs|Register:REGS[4].regs|data_out[0..31]  ; Lost fanout                                 ;
-; Processor:processor|RegisterFile:regs|Register:REGS[3].regs|data_out[0..31]  ; Lost fanout                                 ;
-; Processor:processor|RegisterFile:regs|Register:REGS[2].regs|data_out[0..31]  ; Lost fanout                                 ;
-; Processor:processor|RegisterFile:regs|Register:REGS[1].regs|data_out[0..31]  ; Lost fanout                                 ;
-; Processor:processor|RegisterFile:regs|Register:REGS[0].regs|data_out[0..31]  ; Lost fanout                                 ;
-; Processor:processor|Register:pc|data_out[0..31]                              ; Lost fanout                                 ;
-; Total Number of Removed Registers = 584                                      ;                                             ;
-+------------------------------------------------------------------------------+---------------------------------------------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                                       ;
-+-----------------------------------------------------+--------------------------------+----------------------------------------------------------------------------+
-; Register name                                       ; Reason for Removal             ; Registers Removed due to This Register                                     ;
-+-----------------------------------------------------+--------------------------------+----------------------------------------------------------------------------+
-; Processor:processor|Memory:data_memory|mmio_hex[1]  ; Stuck at GND                   ; Processor:processor|Memory:data_memory|mmio_key[1],                        ;
-;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[0],  ;
-;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[1],  ;
-;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[1],  ;
-;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[1],  ;
-;                                                     ;                                ; Processor:processor|Register:pc|data_out[1]                                ;
-; Processor:processor|Memory:data_memory|mmio_hex[0]  ; Stuck at GND                   ; Processor:processor|Memory:data_memory|mmio_key[0],                        ;
-;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[0],  ;
-;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[0],  ;
-;                                                     ;                                ; Processor:processor|Register:pc|data_out[0]                                ;
-; Processor:processor|Memory:data_memory|mmio_ledr[3] ; Stuck at GND                   ; Processor:processor|Memory:data_memory|mmio_key[3],                        ;
-;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[3],  ;
-;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[3],  ;
-;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[3]   ;
-; Processor:processor|Memory:data_memory|mmio_ledr[2] ; Stuck at GND                   ; Processor:processor|Memory:data_memory|mmio_key[2],                        ;
-;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[2],  ;
-;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[2],  ;
-;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[2]   ;
-; Processor:processor|Memory:data_memory|mmio_ledr[9] ; Stuck at GND                   ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[9],  ;
-;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[9],  ;
-;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[9]   ;
-; Processor:processor|Memory:data_memory|mmio_ledr[8] ; Stuck at GND                   ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[8],  ;
-;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[8],  ;
-;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[8]   ;
-; Processor:processor|Memory:data_memory|mmio_ledr[7] ; Stuck at GND                   ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[7],  ;
-;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[7],  ;
-;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[7]   ;
-; Processor:processor|Memory:data_memory|mmio_ledr[6] ; Stuck at GND                   ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[6],  ;
-;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[6],  ;
-;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[6]   ;
-; Processor:processor|Memory:data_memory|mmio_ledr[5] ; Stuck at GND                   ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[5],  ;
-;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[5],  ;
-;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[5]   ;
-; Processor:processor|Memory:data_memory|mmio_ledr[4] ; Stuck at GND                   ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[4],  ;
-;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[4],  ;
-;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[4]   ;
-; Processor:processor|Memory:data_memory|mmio_hex[10] ; Stuck at GND                   ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[10], ;
-;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[10], ;
-;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[10]  ;
-; Processor:processor|Memory:data_memory|mmio_hex[11] ; Stuck at GND                   ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[11], ;
-;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[11], ;
-;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[11]  ;
-; Processor:processor|Memory:data_memory|mmio_hex[12] ; Stuck at GND                   ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[12], ;
-;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[12], ;
-;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[12]  ;
-; Processor:processor|Memory:data_memory|mmio_hex[13] ; Stuck at GND                   ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[13], ;
-;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[13], ;
-;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[13]  ;
-; Processor:processor|Memory:data_memory|mmio_hex[14] ; Stuck at GND                   ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[14], ;
-;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[14], ;
-;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[14]  ;
-; Processor:processor|Memory:data_memory|mmio_hex[15] ; Stuck at GND                   ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[15], ;
-;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[15], ;
-;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[15]  ;
-+-----------------------------------------------------+--------------------------------+----------------------------------------------------------------------------+
-
-
 +------------------------------------------------------+
 ; General Register Statistics                          ;
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Total registers                              ; 23112 ;
+; Number of registers using Synchronous Clear  ; 541   ;
+; Number of registers using Synchronous Load   ; 30    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 23097 ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[21] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[29] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[8]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[12].regs|data_out[26] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[11].regs|data_out[11] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[10].regs|data_out[5]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[9].regs|data_out[27]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[8].regs|data_out[9]   ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[7].regs|data_out[23]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[6].regs|data_out[16]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[5].regs|data_out[28]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[4].regs|data_out[1]   ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[3].regs|data_out[9]   ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[2].regs|data_out[20]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[1].regs|data_out[28]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Project2|Processor:processor|RegisterFile:regs|Register:REGS[0].regs|data_out[15]  ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |Project2|Processor:processor|Register:pc|data_out[0]                               ;
+; 5:1                ; 29 bits   ; 87 LEs        ; 0 LEs                ; 87 LEs                 ; Yes        ; |Project2|Processor:processor|Register:pc|data_out[11]                              ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |Project2|Processor:processor|Mux120                                                ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Project2|Processor:processor|Mux49                                                 ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Project2|Processor:processor|Mux64                                                 ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |Project2|Processor:processor|Mux57                                                 ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |Project2|Processor:processor|Mux86                                                 ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |Project2|Processor:processor|Decoder:decoder|Mux7                                  ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |Project2|Processor:processor|RegisterFile:regs|Mux61                               ;
+; 16:1               ; 32 bits   ; 320 LEs       ; 320 LEs              ; 0 LEs                  ; No         ; |Project2|Processor:processor|RegisterFile:regs|Mux3                                ;
+; 32:1               ; 14 bits   ; 294 LEs       ; 112 LEs              ; 182 LEs                ; No         ; |Project2|Processor:processor|Alu:alu|Mux26                                         ;
+; 32:1               ; 16 bits   ; 336 LEs       ; 160 LEs              ; 176 LEs                ; No         ; |Project2|Processor:processor|Alu:alu|Mux7                                          ;
+; 18:1               ; 16 bits   ; 192 LEs       ; 192 LEs              ; 0 LEs                  ; No         ; |Project2|Processor:processor|Mux33                                                 ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |Project2|Processor:processor|Decoder:decoder|Mux9                                  ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |Project2|Processor:processor|Decoder:decoder|Mux2                                  ;
+; 7:1                ; 6 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |Project2|Processor:processor|Mux72                                                 ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |Project2|Processor:processor|Mux68                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------+
@@ -381,7 +350,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Parameter Name      ; Value       ; Type                                 ;
 +---------------------+-------------+--------------------------------------+
 ; DBITS               ; 32          ; Signed Integer                       ;
-; IMEM_INIT_FILE      ; Sorter2.mif ; String                               ;
+; IMEM_INIT_FILE      ; sorter2.mif ; String                               ;
 ; DMEM_ADDR_BIT_WIDTH ; 11          ; Signed Integer                       ;
 ; IMEM_ADDR_BIT_WIDTH ; 11          ; Signed Integer                       ;
 +---------------------+-------------+--------------------------------------+
@@ -619,7 +588,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Parameter Name      ; Value       ; Type                         ;
 +---------------------+-------------+------------------------------+
 ; DBITS               ; 32          ; Signed Integer               ;
-; IMEM_INIT_FILE      ; Sorter2.mif ; String                       ;
+; IMEM_INIT_FILE      ; sorter2.mif ; String                       ;
 ; DMEM_INIT_FILE      ;             ; String                       ;
 ; DMEM_ADDR_BIT_WIDTH ; 11          ; Signed Integer               ;
 ; IMEM_ADDR_BIT_WIDTH ; 11          ; Signed Integer               ;
@@ -643,7 +612,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------------+------------------------------------------------------+
 ; Parameter Name ; Value       ; Type                                                 ;
 +----------------+-------------+------------------------------------------------------+
-; MEM_INIT_FILE  ; Sorter2.mif ; String                                               ;
+; MEM_INIT_FILE  ; sorter2.mif ; String                                               ;
 ; ADDR_BIT_WIDTH ; 11          ; Signed Integer                                       ;
 ; DATA_BIT_WIDTH ; 32          ; Signed Integer                                       ;
 ; N_WORDS        ; 2048        ; Signed Integer                                       ;
@@ -904,7 +873,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:01:32     ;
 +----------------+--------------+
 
 
@@ -914,7 +883,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Sun Nov 12 20:41:12 2017
+    Info: Processing started: Sun Nov 12 21:47:49 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Project2 -c Project2
 Info (12021): Found 2 design units, including 2 entities, in source file scproc-controller.v
     Info (12023): Found entity 1: SevenSeg
@@ -1019,11 +988,11 @@ Info (12128): Elaborating entity "Processor" for hierarchy "Processor:processor"
 Warning (10034): Output port "hex_out" at Processor.v(23) has no driver
 Info (12128): Elaborating entity "Register" for hierarchy "Processor:processor|Register:pc"
 Info (12128): Elaborating entity "InstMemory" for hierarchy "Processor:processor|InstMemory:instMem"
-Warning (10858): Verilog HDL warning at InstMemory.v(17): object data used but never assigned
+Warning (10858): Verilog HDL warning at InstMemory.v(15): object data used but never assigned
 Info (12128): Elaborating entity "Decoder" for hierarchy "Processor:processor|Decoder:decoder"
-Warning (10230): Verilog HDL assignment warning at Decoder.v(92): truncated value with size 6 to match size of target (5)
-Warning (10230): Verilog HDL assignment warning at Decoder.v(98): truncated value with size 6 to match size of target (5)
-Warning (10230): Verilog HDL assignment warning at Decoder.v(105): truncated value with size 6 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at Decoder.v(94): truncated value with size 6 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at Decoder.v(100): truncated value with size 6 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at Decoder.v(107): truncated value with size 6 to match size of target (5)
 Warning (10270): Verilog HDL Case Statement warning at Decoder.v(46): incomplete case statement has no default case item
 Info (12128): Elaborating entity "RegisterFile" for hierarchy "Processor:processor|RegisterFile:regs"
 Warning (10230): Verilog HDL assignment warning at RegisterFile.v(33): truncated value with size 32 to match size of target (1)
@@ -1031,21 +1000,86 @@ Info (12128): Elaborating entity "Register" for hierarchy "Processor:processor|R
 Info (12128): Elaborating entity "SignExtension" for hierarchy "Processor:processor|SignExtension:sign_extend"
 Info (12128): Elaborating entity "Alu" for hierarchy "Processor:processor|Alu:alu"
 Info (12128): Elaborating entity "Memory" for hierarchy "Processor:processor|Memory:data_memory"
-Warning (10306): Invalid value "" for synthesis attribute "ram_init_file" at Memory.v(24)
 Info (12128): Elaborating entity "SCProcController" for hierarchy "SCProcController:controller"
 Info (12128): Elaborating entity "SevenSeg" for hierarchy "SCProcController:controller|SevenSeg:sseg0"
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276007): RAM logic "Processor:processor|Memory:data_memory|data" is uninferred due to asynchronous read logic
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[0]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[1]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[2]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[3]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[4]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[5]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[6]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[7]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[8]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[9]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[10]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[11]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[12]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[13]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[14]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[15]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[16]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[17]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[18]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[19]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[20]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[21]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[22]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[23]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[24]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[25]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[26]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[27]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[28]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[29]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[30]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|regs_din[31]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[0]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[1]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[2]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[3]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[4]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[5]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[6]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[7]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[8]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[9]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[10]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[11]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[12]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[13]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[14]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[15]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[16]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[17]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[18]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[19]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[20]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[21]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[22]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[23]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[24]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[25]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[26]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[27]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[28]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[29]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[30]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Memory:data_memory|data_out[31]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Decoder:decoder|sel_alu_sr2[1]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Decoder:decoder|sel_alu_sr2[0]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Decoder:decoder|sel_reg_din[1]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Decoder:decoder|sel_reg_din[0]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Decoder:decoder|alu_fn[0]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Decoder:decoder|alu_fn[1]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Decoder:decoder|alu_fn[2]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Decoder:decoder|alu_fn[3]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "Processor:processor|Decoder:decoder|alu_fn[4]" feeding internal logic into a wire
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LEDR[0]" is stuck at GND
-    Warning (13410): Pin "LEDR[1]" is stuck at GND
-    Warning (13410): Pin "LEDR[2]" is stuck at GND
-    Warning (13410): Pin "LEDR[3]" is stuck at GND
-    Warning (13410): Pin "LEDR[4]" is stuck at GND
-    Warning (13410): Pin "LEDR[5]" is stuck at GND
-    Warning (13410): Pin "LEDR[6]" is stuck at GND
-    Warning (13410): Pin "LEDR[7]" is stuck at GND
-    Warning (13410): Pin "LEDR[8]" is stuck at GND
-    Warning (13410): Pin "LEDR[9]" is stuck at GND
     Warning (13410): Pin "HEX0[0]" is stuck at GND
     Warning (13410): Pin "HEX0[1]" is stuck at GND
     Warning (13410): Pin "HEX0[2]" is stuck at GND
@@ -1074,16 +1108,23 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX3[4]" is stuck at GND
     Warning (13410): Pin "HEX3[5]" is stuck at GND
     Warning (13410): Pin "HEX3[6]" is stuck at VCC
-Info (17049): 558 registers lost all their fanouts during netlist optimizations.
+Info (286030): Timing-Driven Synthesis is running
 Info (128000): Starting physical synthesis optimizations for speed
 Info (332104): Reading SDC File: 'Timing.sdc'
+Info (332110): Deriving PLL clocks
+    Info (332110): create_generated_clock -source {PLL_inst|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|refclk} -divide_by 5 -duty_cycle 50.00 -name {PLL_inst|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk} {PLL_inst|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk}
+Info (332097): The following timing edges are non-unate.  TimeQuest will assume pos-unate behavior for these edges in the clock network.
+    Info (332098): Cell: PLL_inst|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER  from: refclk  to: divclk
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
-Info (332154): The derive_clock_uncertainty command did not apply clock uncertainty to any clock-to-clock transfers.
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Warning (332056): PLL cross checking found inconsistent PLL clock settings:
+    Warning (332056): Clock: PLL_inst|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk with master clock period: 100.000 found on PLL node: PLL_inst|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk does not match the master clock period requirement: 20.000
 Info (332129): Detected timing requirements -- optimizing circuit to achieve only the specified requirements
-Info (332111): Found 1 clocks
+Info (332111): Found 2 clocks
     Info (332111):   Period   Clock Name
     Info (332111): ======== ============
     Info (332111):  100.000      Clock10
+    Info (332111):  500.000 PLL_inst|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk
 Info (128002): Starting physical synthesis algorithm register retiming
 Info (128003): Physical synthesis algorithm register retiming complete: estimated slack improvement of 0 ps
 Info (128002): Starting physical synthesis algorithm combinational resynthesis using boolean division
@@ -1092,35 +1133,20 @@ Info (128002): Starting physical synthesis algorithm register retiming
 Info (128003): Physical synthesis algorithm register retiming complete: estimated slack improvement of 0 ps
 Info (128002): Starting physical synthesis algorithm combinational resynthesis using boolean division
 Info (128003): Physical synthesis algorithm combinational resynthesis using boolean division complete: estimated slack improvement of 0 ps
-Info (128001): Physical synthesis optimizations for speed complete: elapsed time is 00:00:01
+Info (128001): Physical synthesis optimizations for speed complete: elapsed time is 00:00:11
 Info (144001): Generated suppressed messages file C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/Project2.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 16 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "SW[0]"
-    Warning (15610): No output dependent on input pin "SW[1]"
-    Warning (15610): No output dependent on input pin "SW[2]"
-    Warning (15610): No output dependent on input pin "SW[3]"
-    Warning (15610): No output dependent on input pin "SW[4]"
-    Warning (15610): No output dependent on input pin "SW[5]"
-    Warning (15610): No output dependent on input pin "SW[6]"
-    Warning (15610): No output dependent on input pin "SW[7]"
-    Warning (15610): No output dependent on input pin "SW[8]"
-    Warning (15610): No output dependent on input pin "SW[9]"
-    Warning (15610): No output dependent on input pin "KEY[0]"
-    Warning (15610): No output dependent on input pin "KEY[1]"
-    Warning (15610): No output dependent on input pin "KEY[2]"
-    Warning (15610): No output dependent on input pin "KEY[3]"
-    Warning (15610): No output dependent on input pin "CLOCK_50"
-    Warning (15610): No output dependent on input pin "FPGA_RESET_N"
-Info (21057): Implemented 54 device resources after synthesis - the final resource count might be different
+    Info (16011): Adding 5 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 33739 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 16 input pins
     Info (21059): Implemented 38 output pins
-Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 69 warnings
-    Info: Peak virtual memory: 537 megabytes
-    Info: Processing ended: Sun Nov 12 20:41:15 2017
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:04
+    Info (21061): Implemented 33684 logic cells
+    Info (21065): Implemented 1 PLLs
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 117 warnings
+    Info: Peak virtual memory: 710 megabytes
+    Info: Processing ended: Sun Nov 12 21:49:28 2017
+    Info: Elapsed time: 00:01:39
+    Info: Total CPU time (on all processors): 00:01:39
 
 
 +------------------------------------------+
