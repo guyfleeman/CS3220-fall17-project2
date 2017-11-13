@@ -504,7 +504,7 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_VS
 #============================================================
 
 
-set_global_assignment -name LAST_QUARTUS_VERSION 14.0
+set_global_assignment -name LAST_QUARTUS_VERSION 13.1
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
@@ -512,8 +512,6 @@ set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to VGA_*
 
 
-set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
-set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-STATED"
 
 set_global_assignment -name ENABLE_DRC_SETTINGS OFF
 set_global_assignment -name FITTER_EARLY_TIMING_ESTIMATE_MODE REALISTIC
@@ -527,6 +525,16 @@ set_global_assignment -name POWER_AUTO_COMPUTE_TJ OFF
 set_global_assignment -name SAVE_DISK_SPACE OFF
 set_global_assignment -name SMART_RECOMPILE ON
 set_global_assignment -name TIMEQUEST_DO_REPORT_TIMING ON
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name VERILOG_INCLUDE_FILE Processor.vh
+set_global_assignment -name VERILOG_FILE "SCProc-Controller.v"
+set_global_assignment -name VERILOG_FILE RegisterFile.v
+set_global_assignment -name VERILOG_FILE Processor.v
+set_global_assignment -name VERILOG_FILE Mux4to1.v
+set_global_assignment -name VERILOG_FILE Memory.v
+set_global_assignment -name VERILOG_FILE Decoder.v
+set_global_assignment -name VERILOG_FILE Alu.v
 set_global_assignment -name SDC_FILE Timing.sdc
 set_global_assignment -name VERILOG_FILE SignExtension.v
 set_global_assignment -name VERILOG_FILE SevenSeg.v
@@ -535,8 +543,13 @@ set_global_assignment -name VERILOG_FILE Project2.v
 set_global_assignment -name VERILOG_FILE InstMemory.v
 set_global_assignment -name QIP_FILE PLL.qip
 set_global_assignment -name SIP_FILE PLL.sip
-set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
-set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
-set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
-set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name STRATIXV_CONFIGURATION_SCHEME "ACTIVE SERIAL X1"
+set_global_assignment -name USE_CONFIGURATION_DEVICE ON
+set_global_assignment -name CRC_ERROR_OPEN_DRAIN ON
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
+set_global_assignment -name ACTIVE_SERIAL_CLOCK FREQ_100MHZ
+set_global_assignment -name STRATIXII_CONFIGURATION_DEVICE EPCS64
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

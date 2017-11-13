@@ -1,3 +1,6 @@
+`ifndef _SEVEN_SEG_
+`define _SEVEN_SEG_
+
 module SevenSeg(dIn, dOut);
 	input  [3:0] dIn;
 	output [6:0] dOut;
@@ -19,3 +22,5 @@ module SevenSeg(dIn, dOut);
 	  (dIn == 4'he) ? 7'b0000110 :
 	  /*IN == 4'hf*/  7'b0001110 ;
 endmodule
+
+`endif //_SEVEN_SEG_

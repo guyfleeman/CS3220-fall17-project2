@@ -1,17 +1,22 @@
-module Register(clk, reset, wrtEn, dataIn, dataOut);
-	parameter BIT_WIDTH = 32;
-	parameter RESET_VALUE = 0;
-	
-	input clk, reset, wrtEn;
-	input[BIT_WIDTH - 1: 0] dataIn;
-	output[BIT_WIDTH - 1: 0] dataOut;
-	reg[BIT_WIDTH - 1: 0] dataOut;
-	
-	always @(posedge clk) begin
-		if (reset == 1'b1)
-			dataOut <= RESET_VALUE;
-		else if (wrtEn == 1'b1)
-			dataOut <= dataIn;
-	end
-	
+`ifndef _REGISTER_
+`define _REGISTER_
+
+module Register(
+input clk, reset, en_write,
+input[BIT_WIDTH - 1: 0] data_in,
+output reg signed [BIT_WIDTH - 1: 0] data_out
+);
+
+parameter BIT_WIDTH = 32;
+parameter RESET_VALUE = 0;
+
+always @(posedge clk) begin
+    if (reset == 1'b1)
+        data_out <= RESET_VALUE;
+    else if (en_write == 1'b1)
+        data_out <= data_in;
+end
+
 endmodule
+
+`endif

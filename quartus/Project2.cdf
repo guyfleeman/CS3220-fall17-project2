@@ -1,13 +1,13 @@
-/* Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition */
+/* Quartus II 32-bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition */
 JedecChain;
 	FileRevision(JESD32A);
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(5CEBA4F23) Path("/home/hardik/CS3220/Project2/") File("Project2.sof") MfrSpec(OpMask(1));
+		Device PartName(EPCS128) Path("C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/") File("Project2.pof") MfrSpec(OpMask(7) Child_OpMask(1 7));
 
 ChainEnd;
 
 AlteraBegin;
-	ChainType(JTAG);
+	ChainType(asc);
 AlteraEnd;
