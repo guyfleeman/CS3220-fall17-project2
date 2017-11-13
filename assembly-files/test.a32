@@ -1,6 +1,15 @@
 .NAME test1=0xF0000008
+.NAME   IOBASE= 0xF0000000
+.NAME	OFSHEX= 0x00000000
 
 .ORIG 0x40
+
+MVHI	IOBASE,r5
+ADDI    1,r0,r0
+SW		OFSHEX(r5),r0
+
+
+.word   0xdead
 
 ; Testing ALU-I
 ADDI    50,r0,r0    ; r0 =   50
