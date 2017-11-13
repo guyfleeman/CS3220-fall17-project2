@@ -1,6 +1,6 @@
 Analysis & Synthesis report for Project2
-Mon Oct 30 22:38:30 2017
-Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+Sun Nov 12 20:41:15 2017
+Quartus II 32-bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
 ---------------------
@@ -9,20 +9,45 @@ Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   1. Legal Notice
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
-  4. Analysis & Synthesis Source Files Read
-  5. Analysis & Synthesis Resource Usage Summary
-  6. Analysis & Synthesis Resource Utilization by Entity
-  7. Analysis & Synthesis IP Cores Summary
-  8. General Register Statistics
-  9. Parameter Settings for User Entity Instance: Top-level Entity: |Project2
- 10. Parameter Settings for User Entity Instance: PLL:PLL_inst|PLL_0002:pll_inst|altera_pll:altera_pll_i
- 11. Parameter Settings for User Entity Instance: Register:pc
- 12. Parameter Settings for User Entity Instance: InstMemory:instMem
- 13. Port Connectivity Checks: "InstMemory:instMem"
- 14. Port Connectivity Checks: "Register:pc"
- 15. Elapsed Time Per Partition
- 16. Analysis & Synthesis Messages
- 17. Analysis & Synthesis Suppressed Messages
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis IP Cores Summary
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Parameter Settings for User Entity Instance: Top-level Entity: |Project2
+ 13. Parameter Settings for User Entity Instance: PLL:PLL_inst|PLL_0002:pll_inst|altera_pll:altera_pll_i
+ 14. Parameter Settings for User Entity Instance: Processor:processor
+ 15. Parameter Settings for User Entity Instance: Processor:processor|Register:pc
+ 16. Parameter Settings for User Entity Instance: Processor:processor|InstMemory:instMem
+ 17. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs
+ 18. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[0].regs
+ 19. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[1].regs
+ 20. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[2].regs
+ 21. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[3].regs
+ 22. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[4].regs
+ 23. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[5].regs
+ 24. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[6].regs
+ 25. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[7].regs
+ 26. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[8].regs
+ 27. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[9].regs
+ 28. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[10].regs
+ 29. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[11].regs
+ 30. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[12].regs
+ 31. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[13].regs
+ 32. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[14].regs
+ 33. Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[15].regs
+ 34. Parameter Settings for User Entity Instance: Processor:processor|SignExtension:sign_extend
+ 35. Parameter Settings for User Entity Instance: Processor:processor|Alu:alu
+ 36. Parameter Settings for User Entity Instance: Processor:processor|Memory:data_memory
+ 37. Port Connectivity Checks: "Processor:processor|Memory:data_memory"
+ 38. Port Connectivity Checks: "Processor:processor|Register:pc"
+ 39. Port Connectivity Checks: "Processor:processor"
+ 40. Elapsed Time Per Partition
+ 41. Analysis & Synthesis Messages
+ 42. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -45,29 +70,27 @@ applicable agreement for further details.
 
 
 
-+---------------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                          ;
-+-------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status         ; Successful - Mon Oct 30 22:38:29 2017           ;
-; Quartus II 32-bit Version           ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
-; Revision Name                       ; Project2                                        ;
-; Top-level Entity Name               ; Project2                                        ;
-; Family                              ; Cyclone V                                       ;
-; Logic utilization (in ALMs)         ; N/A                                             ;
-; Total registers                     ; 0                                               ;
-; Total pins                          ; 54                                              ;
-; Total virtual pins                  ; 0                                               ;
-; Total block memory bits             ; 0                                               ;
-; Total DSP Blocks                    ; 0                                               ;
-; Total HSSI RX PCSs                  ; 0                                               ;
-; Total HSSI PMA RX Deserializers     ; 0                                               ;
-; Total HSSI PMA RX ATT Deserializers ; 0                                               ;
-; Total HSSI TX PCSs                  ; 0                                               ;
-; Total HSSI PMA TX Serializers       ; 0                                               ;
-; Total HSSI PMA TX ATT Serializers   ; 0                                               ;
-; Total PLLs                          ; 0                                               ;
-; Total DLLs                          ; 0                                               ;
-+-------------------------------------+-------------------------------------------------+
++------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                 ;
++---------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Sun Nov 12 20:41:15 2017      ;
+; Quartus II 32-bit Version       ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name                   ; Project2                                   ;
+; Top-level Entity Name           ; Project2                                   ;
+; Family                          ; Cyclone V                                  ;
+; Logic utilization (in ALMs)     ; N/A                                        ;
+; Total registers                 ; 0                                          ;
+; Total pins                      ; 54                                         ;
+; Total virtual pins              ; 0                                          ;
+; Total block memory bits         ; 0                                          ;
+; Total DSP Blocks                ; 0                                          ;
+; Total HSSI RX PCSs              ; 0                                          ;
+; Total HSSI PMA RX Deserializers ; 0                                          ;
+; Total HSSI TX PCSs              ; 0                                          ;
+; Total HSSI TX Channels          ; 0                                          ;
+; Total PLLs                      ; 0                                          ;
+; Total DLLs                      ; 0                                          ;
++---------------------------------+--------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -153,22 +176,43 @@ applicable agreement for further details.
 ; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
 ; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
 ; Synthesis Seed                                                                  ; 1                  ; 1                  ;
-; Automatic Parallel Synthesis                                                    ; Off                ; Off                ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                        ;
-+----------------------------------+-----------------+-----------------------------+------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                   ; File Name with Absolute Path                                     ; Library ;
-+----------------------------------+-----------------+-----------------------------+------------------------------------------------------------------+---------+
-; Register.v                       ; yes             ; User Verilog HDL File       ; /home/hardik/CS3220/Project2/Register.v                          ;         ;
-; Project2.v                       ; yes             ; User Verilog HDL File       ; /home/hardik/CS3220/Project2/Project2.v                          ;         ;
-; InstMemory.v                     ; yes             ; User Verilog HDL File       ; /home/hardik/CS3220/Project2/InstMemory.v                        ;         ;
-; PLL.v                            ; yes             ; User Wizard-Generated File  ; /home/hardik/CS3220/Project2/PLL.v                               ; PLL     ;
-; PLL/PLL_0002.v                   ; yes             ; User Verilog HDL File       ; /home/hardik/CS3220/Project2/PLL/PLL_0002.v                      ; PLL     ;
-; altera_pll.v                     ; yes             ; Megafunction                ; /home/hardik/altera/quartus/libraries/megafunctions/altera_pll.v ;         ;
-+----------------------------------+-----------------+-----------------------------+------------------------------------------------------------------+---------+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                          ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                      ; Library ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------+---------+
+; SCProc-Controller.v              ; yes             ; User Verilog HDL File        ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/SCProc-Controller.v ;         ;
+; RegisterFile.v                   ; yes             ; User Verilog HDL File        ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/RegisterFile.v      ;         ;
+; Processor.v                      ; yes             ; User Verilog HDL File        ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/Processor.v         ;         ;
+; Mux4to1.v                        ; yes             ; User Verilog HDL File        ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/Mux4to1.v           ;         ;
+; Memory.v                         ; yes             ; User Verilog HDL File        ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/Memory.v            ;         ;
+; Decoder.v                        ; yes             ; User Verilog HDL File        ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/Decoder.v           ;         ;
+; Alu.v                            ; yes             ; User Verilog HDL File        ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/Alu.v               ;         ;
+; SignExtension.v                  ; yes             ; User Verilog HDL File        ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/SignExtension.v     ;         ;
+; SevenSeg.v                       ; yes             ; User Verilog HDL File        ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/SevenSeg.v          ;         ;
+; Register.v                       ; yes             ; User Verilog HDL File        ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/Register.v          ;         ;
+; Project2.v                       ; yes             ; User Verilog HDL File        ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/Project2.v          ;         ;
+; InstMemory.v                     ; yes             ; User Verilog HDL File        ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/InstMemory.v        ;         ;
+; PLL.v                            ; yes             ; User Wizard-Generated File   ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/PLL.v               ; PLL     ;
+; PLL/PLL_0002.v                   ; yes             ; User Verilog HDL File        ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/PLL/PLL_0002.v      ; PLL     ;
+; processor.vh                     ; yes             ; Auto-Found Unspecified File  ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/processor.vh        ;         ;
+; altera_pll.v                     ; yes             ; Megafunction                 ; d:/altera/13.1/quartus/libraries/megafunctions/altera_pll.v                       ;         ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------+
@@ -206,14 +250,114 @@ applicable agreement for further details.
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis IP Cores Summary                                                                                                                  ;
-+--------+--------------+---------+--------------+--------------+------------------------------------------+---------------------------------------------+
-; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                          ; IP Include File                             ;
-+--------+--------------+---------+--------------+--------------+------------------------------------------+---------------------------------------------+
-; Altera ; altera_pll   ; 13.0sp1 ; N/A          ; N/A          ; |Project2|PLL:PLL_inst                   ; /home/hardik/CS3220/Project2/PLL.v          ;
-; Altera ; altera_pll   ; 13.0    ; N/A          ; N/A          ; |Project2|PLL:PLL_inst|PLL_0002:pll_inst ; /home/hardik/CS3220/Project2/PLL/PLL_0002.v ;
-+--------+--------------+---------+--------------+--------------+------------------------------------------+---------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                                                                   ;
++--------+--------------+---------+--------------+--------------+------------------------------------------+------------------------------------------------------------------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                          ; IP Include File                                                              ;
++--------+--------------+---------+--------------+--------------+------------------------------------------+------------------------------------------------------------------------------+
+; Altera ; altera_pll   ; 13.0sp1 ; N/A          ; N/A          ; |Project2|PLL:PLL_inst                   ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/PLL.v          ;
+; Altera ; altera_pll   ; 13.0    ; N/A          ; N/A          ; |Project2|PLL:PLL_inst|PLL_0002:pll_inst ; C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/PLL/PLL_0002.v ;
++--------+--------------+---------+--------------+--------------+------------------------------------------+------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                         ;
++------------------------------------------------------------------------------+---------------------------------------------+
+; Register name                                                                ; Reason for Removal                          ;
++------------------------------------------------------------------------------+---------------------------------------------+
+; Processor:processor|Memory:data_memory|mmio_hex[0,1]                         ; Stuck at GND due to stuck port clock_enable ;
+; Processor:processor|Memory:data_memory|mmio_ledr[0..9]                       ; Stuck at GND due to stuck port clock_enable ;
+; Processor:processor|Memory:data_memory|mmio_hex[2..15]                       ; Stuck at GND due to stuck port clock_enable ;
+; Processor:processor|Memory:data_memory|mmio_sw[4..9]                         ; Lost fanout                                 ;
+; Processor:processor|Memory:data_memory|mmio_key[3]                           ; Lost fanout                                 ;
+; Processor:processor|Memory:data_memory|mmio_sw[3]                            ; Lost fanout                                 ;
+; Processor:processor|Memory:data_memory|mmio_key[2]                           ; Lost fanout                                 ;
+; Processor:processor|Memory:data_memory|mmio_sw[2]                            ; Lost fanout                                 ;
+; Processor:processor|Memory:data_memory|mmio_key[1]                           ; Lost fanout                                 ;
+; Processor:processor|Memory:data_memory|mmio_sw[1]                            ; Lost fanout                                 ;
+; Processor:processor|Memory:data_memory|mmio_key[0]                           ; Lost fanout                                 ;
+; Processor:processor|Memory:data_memory|mmio_sw[0]                            ; Lost fanout                                 ;
+; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[0..31] ; Lost fanout                                 ;
+; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[0..31] ; Lost fanout                                 ;
+; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[0..31] ; Lost fanout                                 ;
+; Processor:processor|RegisterFile:regs|Register:REGS[12].regs|data_out[0..31] ; Lost fanout                                 ;
+; Processor:processor|RegisterFile:regs|Register:REGS[11].regs|data_out[0..31] ; Lost fanout                                 ;
+; Processor:processor|RegisterFile:regs|Register:REGS[10].regs|data_out[0..31] ; Lost fanout                                 ;
+; Processor:processor|RegisterFile:regs|Register:REGS[9].regs|data_out[0..31]  ; Lost fanout                                 ;
+; Processor:processor|RegisterFile:regs|Register:REGS[8].regs|data_out[0..31]  ; Lost fanout                                 ;
+; Processor:processor|RegisterFile:regs|Register:REGS[7].regs|data_out[0..31]  ; Lost fanout                                 ;
+; Processor:processor|RegisterFile:regs|Register:REGS[6].regs|data_out[0..31]  ; Lost fanout                                 ;
+; Processor:processor|RegisterFile:regs|Register:REGS[5].regs|data_out[0..31]  ; Lost fanout                                 ;
+; Processor:processor|RegisterFile:regs|Register:REGS[4].regs|data_out[0..31]  ; Lost fanout                                 ;
+; Processor:processor|RegisterFile:regs|Register:REGS[3].regs|data_out[0..31]  ; Lost fanout                                 ;
+; Processor:processor|RegisterFile:regs|Register:REGS[2].regs|data_out[0..31]  ; Lost fanout                                 ;
+; Processor:processor|RegisterFile:regs|Register:REGS[1].regs|data_out[0..31]  ; Lost fanout                                 ;
+; Processor:processor|RegisterFile:regs|Register:REGS[0].regs|data_out[0..31]  ; Lost fanout                                 ;
+; Processor:processor|Register:pc|data_out[0..31]                              ; Lost fanout                                 ;
+; Total Number of Removed Registers = 584                                      ;                                             ;
++------------------------------------------------------------------------------+---------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                       ;
++-----------------------------------------------------+--------------------------------+----------------------------------------------------------------------------+
+; Register name                                       ; Reason for Removal             ; Registers Removed due to This Register                                     ;
++-----------------------------------------------------+--------------------------------+----------------------------------------------------------------------------+
+; Processor:processor|Memory:data_memory|mmio_hex[1]  ; Stuck at GND                   ; Processor:processor|Memory:data_memory|mmio_key[1],                        ;
+;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[0],  ;
+;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[1],  ;
+;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[1],  ;
+;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[1],  ;
+;                                                     ;                                ; Processor:processor|Register:pc|data_out[1]                                ;
+; Processor:processor|Memory:data_memory|mmio_hex[0]  ; Stuck at GND                   ; Processor:processor|Memory:data_memory|mmio_key[0],                        ;
+;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[0],  ;
+;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[0],  ;
+;                                                     ;                                ; Processor:processor|Register:pc|data_out[0]                                ;
+; Processor:processor|Memory:data_memory|mmio_ledr[3] ; Stuck at GND                   ; Processor:processor|Memory:data_memory|mmio_key[3],                        ;
+;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[3],  ;
+;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[3],  ;
+;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[3]   ;
+; Processor:processor|Memory:data_memory|mmio_ledr[2] ; Stuck at GND                   ; Processor:processor|Memory:data_memory|mmio_key[2],                        ;
+;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[2],  ;
+;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[2],  ;
+;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[2]   ;
+; Processor:processor|Memory:data_memory|mmio_ledr[9] ; Stuck at GND                   ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[9],  ;
+;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[9],  ;
+;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[9]   ;
+; Processor:processor|Memory:data_memory|mmio_ledr[8] ; Stuck at GND                   ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[8],  ;
+;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[8],  ;
+;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[8]   ;
+; Processor:processor|Memory:data_memory|mmio_ledr[7] ; Stuck at GND                   ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[7],  ;
+;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[7],  ;
+;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[7]   ;
+; Processor:processor|Memory:data_memory|mmio_ledr[6] ; Stuck at GND                   ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[6],  ;
+;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[6],  ;
+;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[6]   ;
+; Processor:processor|Memory:data_memory|mmio_ledr[5] ; Stuck at GND                   ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[5],  ;
+;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[5],  ;
+;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[5]   ;
+; Processor:processor|Memory:data_memory|mmio_ledr[4] ; Stuck at GND                   ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[4],  ;
+;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[4],  ;
+;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[4]   ;
+; Processor:processor|Memory:data_memory|mmio_hex[10] ; Stuck at GND                   ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[10], ;
+;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[10], ;
+;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[10]  ;
+; Processor:processor|Memory:data_memory|mmio_hex[11] ; Stuck at GND                   ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[11], ;
+;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[11], ;
+;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[11]  ;
+; Processor:processor|Memory:data_memory|mmio_hex[12] ; Stuck at GND                   ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[12], ;
+;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[12], ;
+;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[12]  ;
+; Processor:processor|Memory:data_memory|mmio_hex[13] ; Stuck at GND                   ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[13], ;
+;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[13], ;
+;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[13]  ;
+; Processor:processor|Memory:data_memory|mmio_hex[14] ; Stuck at GND                   ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[14], ;
+;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[14], ;
+;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[14]  ;
+; Processor:processor|Memory:data_memory|mmio_hex[15] ; Stuck at GND                   ; Processor:processor|RegisterFile:regs|Register:REGS[15].regs|data_out[15], ;
+;                                                     ; due to stuck port clock_enable ; Processor:processor|RegisterFile:regs|Register:REGS[14].regs|data_out[15], ;
+;                                                     ;                                ; Processor:processor|RegisterFile:regs|Register:REGS[13].regs|data_out[15]  ;
++-----------------------------------------------------+--------------------------------+----------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -233,36 +377,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 +--------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: Top-level Entity: |Project2 ;
-+---------------------+----------------------------------+-----------------+
-; Parameter Name      ; Value                            ; Type            ;
-+---------------------+----------------------------------+-----------------+
-; DBITS               ; 32                               ; Signed Integer  ;
-; INST_SIZE           ; 00000000000000000000000000000100 ; Unsigned Binary ;
-; INST_BIT_WIDTH      ; 32                               ; Signed Integer  ;
-; START_PC            ; 00000000000000000000000001000000 ; Unsigned Binary ;
-; REG_INDEX_BIT_WIDTH ; 4                                ; Signed Integer  ;
-; ADDR_KEY            ; 11110000000000000000000000010000 ; Unsigned Binary ;
-; ADDR_SW             ; 11110000000000000000000000010100 ; Unsigned Binary ;
-; ADDR_HEX            ; 11110000000000000000000000000000 ; Unsigned Binary ;
-; ADDR_LEDR           ; 11110000000000000000000000000100 ; Unsigned Binary ;
-; ADDR_LEDG           ; 11110000000000000000000000001000 ; Unsigned Binary ;
-; IMEM_INIT_FILE      ; Sorter2.mif                      ; String          ;
-; IMEM_ADDR_BIT_WIDTH ; 11                               ; Signed Integer  ;
-; IMEM_DATA_BIT_WIDTH ; 32                               ; Signed Integer  ;
-; IMEM_PC_BITS_HI     ; 13                               ; Signed Integer  ;
-; IMEM_PC_BITS_LO     ; 2                                ; Signed Integer  ;
-; DMEMADDRBITS        ; 13                               ; Signed Integer  ;
-; DMEMWORDBITS        ; 2                                ; Signed Integer  ;
-; DMEMWORDS           ; 2048                             ; Signed Integer  ;
-; OP1_ALUR            ; 0000                             ; Unsigned Binary ;
-; OP1_ALUI            ; 1000                             ; Unsigned Binary ;
-; OP1_CMPR            ; 0010                             ; Unsigned Binary ;
-; OP1_CMPI            ; 1010                             ; Unsigned Binary ;
-; OP1_BCOND           ; 0110                             ; Unsigned Binary ;
-; OP1_SW              ; 0101                             ; Unsigned Binary ;
-; OP1_LW              ; 1001                             ; Unsigned Binary ;
-; OP1_JAL             ; 1011                             ; Unsigned Binary ;
-+---------------------+----------------------------------+-----------------+
++---------------------+-------------+--------------------------------------+
+; Parameter Name      ; Value       ; Type                                 ;
++---------------------+-------------+--------------------------------------+
+; DBITS               ; 32          ; Signed Integer                       ;
+; IMEM_INIT_FILE      ; Sorter2.mif ; String                               ;
+; DMEM_ADDR_BIT_WIDTH ; 11          ; Signed Integer                       ;
+; IMEM_ADDR_BIT_WIDTH ; 11          ; Signed Integer                       ;
++---------------------+-------------+--------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -479,6 +601,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; pll_fbclk_mux_1                      ; glb        ; String                                          ;
 ; pll_fbclk_mux_2                      ; fb_1       ; String                                          ;
 ; pll_m_cnt_in_src                     ; ph_mux_clk ; String                                          ;
+; pll_vcoph_div                        ; 1          ; Signed Integer                                  ;
 ; refclk1_frequency                    ; 0 MHz      ; String                                          ;
 ; pll_clkin_0_src                      ; clk_0      ; String                                          ;
 ; pll_clkin_1_src                      ; clk_0      ; String                                          ;
@@ -490,48 +613,290 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Register:pc            ;
-+----------------+----------------------------------+-----------------+
-; Parameter Name ; Value                            ; Type            ;
-+----------------+----------------------------------+-----------------+
-; BIT_WIDTH      ; 32                               ; Signed Integer  ;
-; RESET_VALUE    ; 00000000000000000000000001000000 ; Unsigned Binary ;
-+----------------+----------------------------------+-----------------+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Processor:processor ;
++---------------------+-------------+------------------------------+
+; Parameter Name      ; Value       ; Type                         ;
++---------------------+-------------+------------------------------+
+; DBITS               ; 32          ; Signed Integer               ;
+; IMEM_INIT_FILE      ; Sorter2.mif ; String                       ;
+; DMEM_INIT_FILE      ;             ; String                       ;
+; DMEM_ADDR_BIT_WIDTH ; 11          ; Signed Integer               ;
+; IMEM_ADDR_BIT_WIDTH ; 11          ; Signed Integer               ;
++---------------------+-------------+------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: InstMemory:instMem ;
-+----------------+-------------+----------------------------------+
-; Parameter Name ; Value       ; Type                             ;
-+----------------+-------------+----------------------------------+
-; MEM_INIT_FILE  ; Sorter2.mif ; String                           ;
-; ADDR_BIT_WIDTH ; 11          ; Signed Integer                   ;
-; DATA_BIT_WIDTH ; 32          ; Signed Integer                   ;
-; N_WORDS        ; 2048        ; Signed Integer                   ;
-+----------------+-------------+----------------------------------+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Processor:processor|Register:pc ;
++----------------+----------------------------------+--------------------------+
+; Parameter Name ; Value                            ; Type                     ;
++----------------+----------------------------------+--------------------------+
+; BIT_WIDTH      ; 32                               ; Signed Integer           ;
+; RESET_VALUE    ; 00000000000000000000000001000000 ; Unsigned Binary          ;
++----------------+----------------------------------+--------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "InstMemory:instMem"                                                                    ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; Port    ; Type   ; Severity ; Details                                                                             ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; dataOut ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Processor:processor|InstMemory:instMem ;
++----------------+-------------+------------------------------------------------------+
+; Parameter Name ; Value       ; Type                                                 ;
++----------------+-------------+------------------------------------------------------+
+; MEM_INIT_FILE  ; Sorter2.mif ; String                                               ;
+; ADDR_BIT_WIDTH ; 11          ; Signed Integer                                       ;
+; DATA_BIT_WIDTH ; 32          ; Signed Integer                                       ;
+; N_WORDS        ; 2048        ; Signed Integer                                       ;
++----------------+-------------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "Register:pc"                                                                                   ;
-+-----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port            ; Type   ; Severity ; Details                                                                             ;
-+-----------------+--------+----------+-------------------------------------------------------------------------------------+
-; wrtEn           ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; dataOut[31..13] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; dataOut[1..0]   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-----------------+--------+----------+-------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs ;
++-----------------+-------+----------------------------------------------------------+
+; Parameter Name  ; Value ; Type                                                     ;
++-----------------+-------+----------------------------------------------------------+
+; BIT_WIDTH       ; 32    ; Signed Integer                                           ;
+; REG_INDEX_WIDTH ; 4     ; Signed Integer                                           ;
+; RESET_VALUE     ; 0     ; Signed Integer                                           ;
++-----------------+-------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[0].regs ;
++----------------+-------+---------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                            ;
++----------------+-------+---------------------------------------------------------------------------------+
+; BIT_WIDTH      ; 32    ; Signed Integer                                                                  ;
+; RESET_VALUE    ; 0     ; Signed Integer                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[1].regs ;
++----------------+-------+---------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                            ;
++----------------+-------+---------------------------------------------------------------------------------+
+; BIT_WIDTH      ; 32    ; Signed Integer                                                                  ;
+; RESET_VALUE    ; 0     ; Signed Integer                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[2].regs ;
++----------------+-------+---------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                            ;
++----------------+-------+---------------------------------------------------------------------------------+
+; BIT_WIDTH      ; 32    ; Signed Integer                                                                  ;
+; RESET_VALUE    ; 0     ; Signed Integer                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[3].regs ;
++----------------+-------+---------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                            ;
++----------------+-------+---------------------------------------------------------------------------------+
+; BIT_WIDTH      ; 32    ; Signed Integer                                                                  ;
+; RESET_VALUE    ; 0     ; Signed Integer                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[4].regs ;
++----------------+-------+---------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                            ;
++----------------+-------+---------------------------------------------------------------------------------+
+; BIT_WIDTH      ; 32    ; Signed Integer                                                                  ;
+; RESET_VALUE    ; 0     ; Signed Integer                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[5].regs ;
++----------------+-------+---------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                            ;
++----------------+-------+---------------------------------------------------------------------------------+
+; BIT_WIDTH      ; 32    ; Signed Integer                                                                  ;
+; RESET_VALUE    ; 0     ; Signed Integer                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[6].regs ;
++----------------+-------+---------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                            ;
++----------------+-------+---------------------------------------------------------------------------------+
+; BIT_WIDTH      ; 32    ; Signed Integer                                                                  ;
+; RESET_VALUE    ; 0     ; Signed Integer                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[7].regs ;
++----------------+-------+---------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                            ;
++----------------+-------+---------------------------------------------------------------------------------+
+; BIT_WIDTH      ; 32    ; Signed Integer                                                                  ;
+; RESET_VALUE    ; 0     ; Signed Integer                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[8].regs ;
++----------------+-------+---------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                            ;
++----------------+-------+---------------------------------------------------------------------------------+
+; BIT_WIDTH      ; 32    ; Signed Integer                                                                  ;
+; RESET_VALUE    ; 0     ; Signed Integer                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[9].regs ;
++----------------+-------+---------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                            ;
++----------------+-------+---------------------------------------------------------------------------------+
+; BIT_WIDTH      ; 32    ; Signed Integer                                                                  ;
+; RESET_VALUE    ; 0     ; Signed Integer                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[10].regs ;
++----------------+-------+----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                             ;
++----------------+-------+----------------------------------------------------------------------------------+
+; BIT_WIDTH      ; 32    ; Signed Integer                                                                   ;
+; RESET_VALUE    ; 0     ; Signed Integer                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[11].regs ;
++----------------+-------+----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                             ;
++----------------+-------+----------------------------------------------------------------------------------+
+; BIT_WIDTH      ; 32    ; Signed Integer                                                                   ;
+; RESET_VALUE    ; 0     ; Signed Integer                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[12].regs ;
++----------------+-------+----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                             ;
++----------------+-------+----------------------------------------------------------------------------------+
+; BIT_WIDTH      ; 32    ; Signed Integer                                                                   ;
+; RESET_VALUE    ; 0     ; Signed Integer                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[13].regs ;
++----------------+-------+----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                             ;
++----------------+-------+----------------------------------------------------------------------------------+
+; BIT_WIDTH      ; 32    ; Signed Integer                                                                   ;
+; RESET_VALUE    ; 0     ; Signed Integer                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[14].regs ;
++----------------+-------+----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                             ;
++----------------+-------+----------------------------------------------------------------------------------+
+; BIT_WIDTH      ; 32    ; Signed Integer                                                                   ;
+; RESET_VALUE    ; 0     ; Signed Integer                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Processor:processor|RegisterFile:regs|Register:REGS[15].regs ;
++----------------+-------+----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                             ;
++----------------+-------+----------------------------------------------------------------------------------+
+; BIT_WIDTH      ; 32    ; Signed Integer                                                                   ;
+; RESET_VALUE    ; 0     ; Signed Integer                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Processor:processor|SignExtension:sign_extend ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; IN_BIT_WIDTH   ; 16    ; Signed Integer                                                    ;
+; OUT_BIT_WIDTH  ; 32    ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Processor:processor|Alu:alu ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; BIT_WIDTH      ; 32    ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Processor:processor|Memory:data_memory ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; MEM_INIT_FILE  ;       ; String                                                     ;
+; ADDR_BIT_WIDTH ; 11    ; Signed Integer                                             ;
+; DATA_BIT_WIDTH ; 32    ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Processor:processor|Memory:data_memory"                                                     ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                             ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; mmio_hex_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "Processor:processor|Register:pc" ;
++----------+-------+----------+-------------------------------+
+; Port     ; Type  ; Severity ; Details                       ;
++----------+-------+----------+-------------------------------+
+; en_write ; Input ; Info     ; Stuck at VCC                  ;
++----------+-------+----------+-------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Processor:processor"                                                                                              ;
++---------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                                                  ;
++---------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; inst_word_out ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+----------------------------------------------------------------------------------------------------------+
 
 
 +-------------------------------+
@@ -539,7 +904,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:09     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -548,32 +913,46 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
-    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Mon Oct 30 22:38:17 2017
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Sun Nov 12 20:41:12 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Project2 -c Project2
-Info (12021): Found 1 design units, including 1 entities, in source file SignExtension.v
-    Info (12023): Found entity 1: SignExtension
-Info (12021): Found 1 design units, including 1 entities, in source file SevenSeg.v
+Info (12021): Found 2 design units, including 2 entities, in source file scproc-controller.v
     Info (12023): Found entity 1: SevenSeg
-Info (12021): Found 1 design units, including 1 entities, in source file Register.v
+    Info (12023): Found entity 2: SCProcController
+Info (12021): Found 2 design units, including 2 entities, in source file registerfile.v
     Info (12023): Found entity 1: Register
-Info (12021): Found 1 design units, including 1 entities, in source file Project2.v
+    Info (12023): Found entity 2: RegisterFile
+Info (12021): Found 7 design units, including 7 entities, in source file processor.v
+    Info (12023): Found entity 1: Alu
+    Info (12023): Found entity 2: Decoder
+    Info (12023): Found entity 3: InstMemory
+    Info (12023): Found entity 4: Mux4to1
+    Info (12023): Found entity 5: SignExtension
+    Info (12023): Found entity 6: Memory
+    Info (12023): Found entity 7: Processor
+Info (12021): Found 0 design units, including 0 entities, in source file mux4to1.v
+Info (12021): Found 0 design units, including 0 entities, in source file memory.v
+Info (12021): Found 0 design units, including 0 entities, in source file decoder.v
+Info (12021): Found 0 design units, including 0 entities, in source file alu.v
+Info (12021): Found 0 design units, including 0 entities, in source file signextension.v
+Info (12021): Found 0 design units, including 0 entities, in source file sevenseg.v
+Info (12021): Found 0 design units, including 0 entities, in source file register.v
+Info (12021): Found 1 design units, including 1 entities, in source file project2.v
     Info (12023): Found entity 1: Project2
-Info (12021): Found 1 design units, including 1 entities, in source file InstMemory.v
-    Info (12023): Found entity 1: InstMemory
-Info (12021): Found 1 design units, including 1 entities, in source file PLL.v
+Info (12021): Found 0 design units, including 0 entities, in source file instmemory.v
+Info (12021): Found 1 design units, including 1 entities, in source file pll.v
     Info (12023): Found entity 1: PLL
-Info (12021): Found 1 design units, including 1 entities, in source file PLL/PLL_0002.v
+Info (12021): Found 1 design units, including 1 entities, in source file pll/pll_0002.v
     Info (12023): Found entity 1: PLL_0002
 Info (12127): Elaborating entity "Project2" for the top level hierarchy
-Warning (10034): Output port "LEDR" at Project2.v(6) has no driver
-Warning (10034): Output port "HEX0" at Project2.v(7) has no driver
-Warning (10034): Output port "HEX1" at Project2.v(8) has no driver
-Warning (10034): Output port "HEX2" at Project2.v(9) has no driver
-Warning (10034): Output port "HEX3" at Project2.v(11) has no driver
 Info (12128): Elaborating entity "PLL" for hierarchy "PLL:PLL_inst"
 Info (12128): Elaborating entity "PLL_0002" for hierarchy "PLL:PLL_inst|PLL_0002:pll_inst"
 Info (12128): Elaborating entity "altera_pll" for hierarchy "PLL:PLL_inst|PLL_0002:pll_inst|altera_pll:altera_pll_i"
+Warning (10036): Verilog HDL or VHDL warning at altera_pll.v(398): object "cntsel_temp" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at altera_pll.v(400): object "gnd" assigned a value but never read
+Warning (10034): Output port "lvds_clk" at altera_pll.v(295) has no driver
+Warning (10034): Output port "loaden" at altera_pll.v(296) has no driver
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
 Info (12130): Elaborated megafunction instantiation "PLL:PLL_inst|PLL_0002:pll_inst|altera_pll:altera_pll_i"
 Info (12133): Instantiated megafunction "PLL:PLL_inst|PLL_0002:pll_inst|altera_pll:altera_pll_i" with the following parameter:
     Info (12134): Parameter "fractional_vco_multiplier" = "false"
@@ -636,8 +1015,26 @@ Info (12133): Instantiated megafunction "PLL:PLL_inst|PLL_0002:pll_inst|altera_p
     Info (12134): Parameter "duty_cycle17" = "50"
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
-Info (12128): Elaborating entity "Register" for hierarchy "Register:pc"
-Info (12128): Elaborating entity "InstMemory" for hierarchy "InstMemory:instMem"
+Info (12128): Elaborating entity "Processor" for hierarchy "Processor:processor"
+Warning (10034): Output port "hex_out" at Processor.v(23) has no driver
+Info (12128): Elaborating entity "Register" for hierarchy "Processor:processor|Register:pc"
+Info (12128): Elaborating entity "InstMemory" for hierarchy "Processor:processor|InstMemory:instMem"
+Warning (10858): Verilog HDL warning at InstMemory.v(17): object data used but never assigned
+Info (12128): Elaborating entity "Decoder" for hierarchy "Processor:processor|Decoder:decoder"
+Warning (10230): Verilog HDL assignment warning at Decoder.v(92): truncated value with size 6 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at Decoder.v(98): truncated value with size 6 to match size of target (5)
+Warning (10230): Verilog HDL assignment warning at Decoder.v(105): truncated value with size 6 to match size of target (5)
+Warning (10270): Verilog HDL Case Statement warning at Decoder.v(46): incomplete case statement has no default case item
+Info (12128): Elaborating entity "RegisterFile" for hierarchy "Processor:processor|RegisterFile:regs"
+Warning (10230): Verilog HDL assignment warning at RegisterFile.v(33): truncated value with size 32 to match size of target (1)
+Info (12128): Elaborating entity "Register" for hierarchy "Processor:processor|RegisterFile:regs|Register:REGS[0].regs"
+Info (12128): Elaborating entity "SignExtension" for hierarchy "Processor:processor|SignExtension:sign_extend"
+Info (12128): Elaborating entity "Alu" for hierarchy "Processor:processor|Alu:alu"
+Info (12128): Elaborating entity "Memory" for hierarchy "Processor:processor|Memory:data_memory"
+Warning (10306): Invalid value "" for synthesis attribute "ram_init_file" at Memory.v(24)
+Info (12128): Elaborating entity "SCProcController" for hierarchy "SCProcController:controller"
+Info (12128): Elaborating entity "SevenSeg" for hierarchy "SCProcController:controller|SevenSeg:sseg0"
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDR[0]" is stuck at GND
     Warning (13410): Pin "LEDR[1]" is stuck at GND
@@ -655,28 +1052,29 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX0[3]" is stuck at GND
     Warning (13410): Pin "HEX0[4]" is stuck at GND
     Warning (13410): Pin "HEX0[5]" is stuck at GND
-    Warning (13410): Pin "HEX0[6]" is stuck at GND
+    Warning (13410): Pin "HEX0[6]" is stuck at VCC
     Warning (13410): Pin "HEX1[0]" is stuck at GND
     Warning (13410): Pin "HEX1[1]" is stuck at GND
     Warning (13410): Pin "HEX1[2]" is stuck at GND
     Warning (13410): Pin "HEX1[3]" is stuck at GND
     Warning (13410): Pin "HEX1[4]" is stuck at GND
     Warning (13410): Pin "HEX1[5]" is stuck at GND
-    Warning (13410): Pin "HEX1[6]" is stuck at GND
+    Warning (13410): Pin "HEX1[6]" is stuck at VCC
     Warning (13410): Pin "HEX2[0]" is stuck at GND
     Warning (13410): Pin "HEX2[1]" is stuck at GND
     Warning (13410): Pin "HEX2[2]" is stuck at GND
     Warning (13410): Pin "HEX2[3]" is stuck at GND
     Warning (13410): Pin "HEX2[4]" is stuck at GND
     Warning (13410): Pin "HEX2[5]" is stuck at GND
-    Warning (13410): Pin "HEX2[6]" is stuck at GND
+    Warning (13410): Pin "HEX2[6]" is stuck at VCC
     Warning (13410): Pin "HEX3[0]" is stuck at GND
     Warning (13410): Pin "HEX3[1]" is stuck at GND
     Warning (13410): Pin "HEX3[2]" is stuck at GND
     Warning (13410): Pin "HEX3[3]" is stuck at GND
     Warning (13410): Pin "HEX3[4]" is stuck at GND
     Warning (13410): Pin "HEX3[5]" is stuck at GND
-    Warning (13410): Pin "HEX3[6]" is stuck at GND
+    Warning (13410): Pin "HEX3[6]" is stuck at VCC
+Info (17049): 558 registers lost all their fanouts during netlist optimizations.
 Info (128000): Starting physical synthesis optimizations for speed
 Info (332104): Reading SDC File: 'Timing.sdc'
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
@@ -692,8 +1090,10 @@ Info (128002): Starting physical synthesis algorithm combinational resynthesis u
 Info (128003): Physical synthesis algorithm combinational resynthesis using boolean division complete: estimated slack improvement of 0 ps
 Info (128002): Starting physical synthesis algorithm register retiming
 Info (128003): Physical synthesis algorithm register retiming complete: estimated slack improvement of 0 ps
-Info (128001): Physical synthesis optimizations for speed complete: elapsed time is 00:00:09
-Info (144001): Generated suppressed messages file /home/hardik/CS3220/Project2/Project2.map.smsg
+Info (128002): Starting physical synthesis algorithm combinational resynthesis using boolean division
+Info (128003): Physical synthesis algorithm combinational resynthesis using boolean division complete: estimated slack improvement of 0 ps
+Info (128001): Physical synthesis optimizations for speed complete: elapsed time is 00:00:01
+Info (144001): Generated suppressed messages file C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/Project2.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 16 input pin(s) that do not drive logic
@@ -716,16 +1116,16 @@ Warning (21074): Design contains 16 input pin(s) that do not drive logic
 Info (21057): Implemented 54 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 16 input pins
     Info (21059): Implemented 38 output pins
-Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 61 warnings
-    Info: Peak virtual memory: 686 megabytes
-    Info: Processing ended: Mon Oct 30 22:38:30 2017
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:06
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 69 warnings
+    Info: Peak virtual memory: 537 megabytes
+    Info: Processing ended: Sun Nov 12 20:41:15 2017
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:04
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in /home/hardik/CS3220/Project2/Project2.map.smsg.
+The suppressed messages can be found in C:/Users/WillStuckey/Documents/CS3220-fall17-project2/quartus/Project2.map.smsg.
 
 

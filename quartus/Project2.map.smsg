@@ -1,5 +1,2 @@
 Warning (20028): Parallel compilation is not licensed and has been disabled
-Warning (10036): Verilog HDL or VHDL warning at altera_pll.v(395): object "cntsel_temp" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at altera_pll.v(397): object "gnd" assigned a value but never read
-Warning (10858): Verilog HDL warning at InstMemory.v(11): object data used but never assigned
 Warning (14284): Synthesized away the following node(s):
