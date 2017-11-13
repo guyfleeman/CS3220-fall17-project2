@@ -1,3 +1,5 @@
+.NAME test1=0xF0000008
+
 .ORIG 0x40
 
 ; Testing ALU-I
@@ -9,6 +11,7 @@ XORI    20,r0,r0    ; r0 =   31
 NANDI   17,r0,r0    ; r0 =  -18
 NORI    1,r0,r0     ; r0 =   16
 XNORI   -8,r0,r0    ; r0 =   23 (is this right?)
+MVHI    test1,r0    ; r0 =   5
 
 XOR    r0,r0,r0
 ADDI    3,r1,r1
