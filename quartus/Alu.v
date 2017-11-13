@@ -18,8 +18,8 @@ always @(*) begin
         `FN_AND  : out = in1 & in2;
         `FN_OR   : out = in1 | in2;
         `FN_XOR  : out = in1 ^ in2;
-        `FN_NAND : out = ~(in1 & in2);
-        `FN_NOR  : out = ~(in1 | in2);
+        `FN_NAND : out = in1 ~& in2;
+        `FN_NOR  : out = in1 ~| in2;
         `FN_XNOR : out = in1 ~^ in2;
         `FN_MVHI : out = {in2[BIT_WIDTH-1:16],16'h0000};
 

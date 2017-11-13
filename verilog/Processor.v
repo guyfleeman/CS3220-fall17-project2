@@ -1,3 +1,7 @@
+`ifndef _PROCESSOR_
+`define _PROCESSOR_
+
+`include "Processor.vh"
 `include "Alu.v"
 `include "Decoder.v"
 `include "InstMemory.v"
@@ -175,3 +179,5 @@ Memory #(
 );
 
 endmodule
+
+`endif //_PROCESSOR_

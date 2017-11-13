@@ -24,10 +24,10 @@ localparam SIZE = (1 << ADDR_BIT_WIDTH);
 (* ram_init_file = MEM_INIT_FILE *)
 
 reg [DATA_BIT_WIDTH - 1 : 0] data [0 : SIZE - 1];
-reg [15:0] mmio_hex;
-reg [9:0] mmio_ledr;
-reg [3:0] mmio_key;
-reg [9:0] mmio_sw;
+reg [15:0] mmio_hex = 0;
+reg [9:0] mmio_ledr = 0;
+reg [3:0] mmio_key = 0;
+reg [9:0] mmio_sw = 0;
 
 assign mmio_hex_out = mmio_hex;
 assign mmio_ledr_out = mmio_ledr;

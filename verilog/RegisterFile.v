@@ -1,3 +1,6 @@
+`ifndef _REGISTER_FILE_
+`define _REGISTER_FILE_
+
 `include "Register.v"
 
 module RegisterFile(
@@ -38,3 +41,5 @@ assign sr1 = reg_data_out[sr1_ind];
 assign sr2 = reg_data_out[sr2_ind];
 
 endmodule
+
+`endif //_REGISTER_FILE_

@@ -1,3 +1,6 @@
+`ifndef _DECODER_
+`define _DECODER_
+
 `include "Processor.vh"
 
 module Decoder(
@@ -112,3 +115,5 @@ always @(*) begin
 end
 
 endmodule
+
+`endif //_DECODER_

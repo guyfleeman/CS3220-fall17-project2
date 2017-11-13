@@ -2,7 +2,6 @@
 `define _PROCESSOR_
 
 `include "Processor.vh"
-
 `include "Alu.v"
 `include "Decoder.v"
 `include "InstMemory.v"
@@ -11,7 +10,6 @@
 `include "RegisterFile.v"
 `include "SignExtension.v"
 `include "Memory.v"
-`include "Decoder.v"
 
 module Processor (
 input clk,
@@ -104,6 +102,7 @@ always @(*) begin
         `REG_IN_PC4:    regs_din = pc_out + 4;
         `REG_IN_DOUT:   regs_din = data_out;
         `REG_IN_ALU:    regs_din = alu_out;
+        `REG_IN_IMM16:    regs_din = {imm, 16'b0};
         default:        regs_din = {DBITS{1'bz}};
     endcase
 end
@@ -160,7 +159,6 @@ Alu #(
     .out (alu_out)
 );
 
-wire [15:0] mmio_hex;
 wire [DBITS-1:0] data_out;
 Memory #(
     .MEM_INIT_FILE (DMEM_INIT_FILE),
@@ -176,7 +174,7 @@ Memory #(
 
     .mmio_key_in (key_in),
     .mmio_sw_in (sw_in),
-    .mmio_hex_out (mmio_hex),
+    .mmio_hex_out (hex_out),
     .mmio_ledr_out (ledr_out)
 );
 

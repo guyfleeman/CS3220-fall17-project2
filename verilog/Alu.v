@@ -1,3 +1,6 @@
+`ifndef _ALU_
+`define _ALU_
+
 `include "Processor.vh"
 
 module Alu(
@@ -33,3 +36,5 @@ always @(*) begin
 end
 
 endmodule
+
+`endif //_ALU_

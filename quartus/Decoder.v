@@ -57,8 +57,8 @@ always @(*) begin
                 sel_pc      = `PC_IN_PC4;
                 wr_reg      = 1'b1;
                 sel_reg_din = `REG_IN_ALU;
-					 if (alu_fn == `FN_MVHI)
-					     sel_reg_din = `REG_IN_IMM;
+                if (alu_fn == `FN_MVHI)
+                    sel_reg_din = `REG_IN_IMM16;
             end
             `OP_CMPR: begin
                 alu_fn      = {1'b1, fn};

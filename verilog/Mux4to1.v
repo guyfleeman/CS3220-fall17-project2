@@ -1,3 +1,6 @@
+`ifndef _MUX4TO1_
+`define _MUX4TO1_
+
 module Mux4to1(
 input clk, reset,
 input [1:0] select,
@@ -18,3 +21,5 @@ always @(*) begin
 end
 
 endmodule
+
+`endif //_MUX4TO1_

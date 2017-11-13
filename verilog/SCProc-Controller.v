@@ -1,3 +1,6 @@
+`ifndef _SC_PROC_CONTROLLER_
+`define _SC_PROC_CONTROLLER_
+
 `include "SevenSeg.v"
 
 module SCProcController (
@@ -26,3 +29,5 @@ SevenSeg sseg2 (.dIn (hex_in[11:8]),  .dOut (hex2_out));
 SevenSeg sseg3 (.dIn (hex_in[15:12]), .dOut (hex3_out));
 
 endmodule
+
+`endif //_SC_PROC_CONTROLLER_

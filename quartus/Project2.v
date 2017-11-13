@@ -13,7 +13,7 @@ output [6:0] HEX2,
 output [6:0] HEX3
 );
 parameter DBITS                 = 32;
-parameter IMEM_INIT_FILE        = "sorter2.mif";
+parameter IMEM_INIT_FILE        = "Sorter2.mif";
 
 parameter DMEM_ADDR_BIT_WIDTH   = 11;
 parameter IMEM_ADDR_BIT_WIDTH   = 11;

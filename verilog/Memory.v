@@ -1,3 +1,8 @@
+`ifndef _MEMORY_
+`define _MEMORY_
+
+`include "Processor.vh"
+
 module Memory (
 input clk, reset, en_write,
 input [29 : 0] addr,
@@ -57,3 +62,5 @@ always @(posedge clk) begin
 end
 
 endmodule
+
+`endif //_MEMORY_

@@ -1,5 +1,5 @@
-`ifndef _DECODER_VH_
-`define _DECODER_VH_
+`ifndef _PROCESSOR_VH_
+`define _PROCESSOR_VH_
 
 `define OP_ALUR     4'b1111
 `define OP_ALUI     4'b1011
@@ -37,7 +37,7 @@
 `define REG_IN_PC4      2'b00
 `define REG_IN_DOUT     2'b01
 `define REG_IN_ALU      2'b10
-`define REG_IN_IMM16      2'b11
+`define REG_IN_IMM16    2'b11
 
 `define PC_IN_IMM4      2'b00
 `define PC_IN_ALU       2'b01
@@ -52,4 +52,4 @@
 `define ADDR_LEDR       32'hF0000004 >> 2
 `define ADDR_LEDG       32'hF0000008 >> 2
 
-`endif
+`endif //_PROCESSOR_VH_
