@@ -1,3 +1,6 @@
+`include "Processor.v"
+`include "SCProc-Controller.v"
+
 module Project2(
 input  [9:0] SW,
 input  [3:0] KEY,
@@ -10,36 +13,11 @@ output [6:0] HEX2,
 output [6:0] HEX3
 );
 parameter DBITS                 = 32;
-parameter INST_SIZE             = 32'd4;
-parameter INST_BIT_WIDTH        = 32;
-parameter START_PC              = 32'h40;
-parameter REG_INDEX_BIT_WIDTH   = 4;
-parameter ADDR_KEY              = 32'hF0000010;
-parameter ADDR_SW               = 32'hF0000014;
-parameter ADDR_HEX              = 32'hF0000000;
-parameter ADDR_LEDR             = 32'hF0000004;
-parameter ADDR_LEDG             = 32'hF0000008;
-
 parameter IMEM_INIT_FILE        = "Sorter2.mif";
+
+parameter DMEM_ADDR_BIT_WIDTH   = 11;
 parameter IMEM_ADDR_BIT_WIDTH   = 11;
-parameter IMEM_DATA_BIT_WIDTH   = INST_BIT_WIDTH;
-parameter IMEM_PC_BITS_HI       = IMEM_ADDR_BIT_WIDTH + 2;
-parameter IMEM_PC_BITS_LO       = 2;
 
-parameter DMEMADDRBITS          = 13;
-parameter DMEMWORDBITS          = 2;
-parameter DMEMWORDS             = 2048;
-
-// parameter OP1_ALUR              = 4'b0000;
-// parameter OP1_ALUI              = 4'b1000;
-// parameter OP1_CMPR              = 4'b0010;
-// parameter OP1_CMPI              = 4'b1010;
-// parameter OP1_BCOND             = 4'b0110;
-// parameter OP1_SW                = 4'b0101;
-// parameter OP1_LW                = 4'b1001;
-// parameter OP1_JAL               = 4'b1011;
-
-// Add parameters for various secondary opcode values
 
 //PLL, clock generation, and reset generation
 wire clk, lock;
@@ -53,17 +31,38 @@ PLL	PLL_inst (
 
 wire reset = ~lock;
 
+wire [3:0] proc_key_in;
+wire [9:0] proc_sw_in;
+wire [15:0] proc_hex_out;
+wire [9:0] proc_ledr_out;
+Processor #(
+    .DBITS (DBITS),
+    .IMEM_INIT_FILE (IMEM_INIT_FILE)
+    ) processor (
+    .clk (clk),
+    .reset (reset),
+
+    .key_in (proc_key_in),
+    .sw_in (proc_sw_in),
+    .hex_out (proc_hex_out),
+    .ledr_out (proc_ledr_out)
+);
 
 
-// Put the code for getting opcode1, rd, rs, rt, imm, etc. here
+SCProcController controller (
+    .key_in (KEY),
+    .ledr_in (proc_ledr_out),
+    .key_out (proc_key_in),
+    .ledr_out (LEDR),
 
-// Create the registers
+    .sw_in (SW),
+    .sw_out (proc_sw_in),
 
-// Create ALU unit
-
-// Put the code for data memory and I/O here
-
-// KEYS, SWITCHES, HEXS, and LEDS are memory mapped IO
+    .hex_in (proc_hex_out),
+    .hex0_out (HEX0),
+    .hex1_out (HEX1),
+    .hex2_out (HEX2),
+    .hex3_out (HEX3)
+);
 
 endmodule
-
