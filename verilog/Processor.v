@@ -98,6 +98,7 @@ always @(*) begin
         `REG_IN_PC4:    regs_din = pc_out + 4;
         `REG_IN_DOUT:   regs_din = data_out;
         `REG_IN_ALU:    regs_din = alu_out;
+        `REG_IN_IMM:    regs_din = {16'b0, imm};
         default:        regs_din = {DBITS{1'bz}};
     endcase
 end
