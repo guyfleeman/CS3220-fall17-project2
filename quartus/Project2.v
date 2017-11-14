@@ -13,7 +13,7 @@ output [6:0] HEX2,
 output [6:0] HEX3
 );
 parameter DBITS                 = 32;
-parameter IMEM_INIT_FILE        = "Sorter2.mif";
+parameter IMEM_INIT_FILE        = "test.mif";
 
 parameter DMEM_ADDR_BIT_WIDTH   = 11;
 parameter IMEM_ADDR_BIT_WIDTH   = 11;
@@ -45,15 +45,18 @@ Processor #(
     .key_in (proc_key_in),
     .sw_in (proc_sw_in),
     .hex_out (proc_hex_out),
-    .ledr_out (proc_ledr_out)
+    .ledr_out (LEDR)
 );
 
+//reg [9:0] leds = ;
+//assign LEDR = 10'b1110000110;
+//reg [15:0] hex_fixed = 16'h01;
 
 SCProcController controller (
     .key_in (KEY),
     .ledr_in (proc_ledr_out),
     .key_out (proc_key_in),
-    .ledr_out (LEDR),
+    //.ledr_out (LEDR),
 
     .sw_in (SW),
     .sw_out (proc_sw_in),

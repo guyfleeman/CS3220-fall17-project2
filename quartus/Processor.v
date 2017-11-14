@@ -23,7 +23,7 @@ output [9:0] ledr_out
 );
 
 parameter DBITS                 = 32;
-parameter IMEM_INIT_FILE        = "Sorter2.mif";
+parameter IMEM_INIT_FILE        = "test.mif";
 parameter DMEM_INIT_FILE        = "";
 
 parameter DMEM_ADDR_BIT_WIDTH   = 11;
@@ -70,6 +70,7 @@ InstMemory #(
     IMEM_ADDR_BIT_WIDTH,
     INST_BIT_WIDTH
     ) instMem (
+	 .clk (clk),
     .addr (pc_out[IMEM_ADDR_BIT_WIDTH + IMEM_WORD_BITS - 1: IMEM_WORD_BITS]),
     .dataOut (inst_word)
 );

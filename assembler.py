@@ -289,6 +289,7 @@ for l1 in lines:
         else:
             raise ValueError("Invalid instruction or parameters")
 
+        out = out.replace('L','') # TODO why needed?
         instrHex[currAddr] = out;
         mifOut += [hex(currAddr)[2:].zfill(8) + ' : ' + out + ';']
         # print(out)

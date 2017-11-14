@@ -35,3 +35,5 @@ simulation/
 timing/
 testbench/
 *_sim/
+hc_output/
+serv_req_info.txt
