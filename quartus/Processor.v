@@ -3,7 +3,7 @@
 
 `include "Processor.vh"
 `include "Alu.v"
-`include "Decoder.v"
+`include "SCProc-Controller.v"
 `include "InstMemory.v"
 `include "Mux4to1.v"
 `include "Register.v"
@@ -82,7 +82,7 @@ wire [3:0] src_reg1, src_reg2, dest_reg;
 wire [15:0] imm;
 wire [1:0] sel_pc, sel_alu_sr2, sel_reg_din;
 wire wr_reg, wr_mem;
-Decoder decoder (
+SCProcController controller (
     .data (inst_word),
     .alu_out (alu_out),
     .alu_fn (alu_fn),

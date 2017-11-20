@@ -28,29 +28,6 @@ Processor #(
     .ledr_out (proc_ledr_out)
 );
 
-wire [9:0] SW;
-wire [3:0] KEY;
-wire [9:0] LEDR;
-wire [6:0] HEX0;
-wire [6:0] HEX1;
-wire [6:0] HEX2;
-wire [6:0] HEX3;
-SCProcController controller (
-    .key_in (KEY),
-    .ledr_in (proc_ledr_out),
-    .key_out (proc_key_in),
-    .ledr_out (LEDR),
-
-    .sw_in (SW),
-    .sw_out (proc_sw_in),
-
-    .hex_in (proc_hex_out),
-    .hex0_out (HEX0),
-    .hex1_out (HEX1),
-    .hex2_out (HEX2),
-    .hex3_out (HEX3)
-);
-
 initial begin
     $readmemh("../../assembly-files/test.hex", processor.instMem.data);
     $dumpfile("Processor.vcd");

@@ -3,7 +3,7 @@
 
 `include "Processor.vh"
 `include "Alu.v"
-`include "Decoder.v"
+`include "SCProc-Controller.v"
 `include "InstMemory.v"
 `include "Mux4to1.v"
 `include "Register.v"
@@ -23,7 +23,7 @@ output [9:0] ledr_out
 );
 
 parameter DBITS                 = 32;
-parameter IMEM_INIT_FILE        = "Sorter2.mif";
+parameter IMEM_INIT_FILE        = "test.mif";
 parameter DMEM_INIT_FILE        = "";
 
 parameter DMEM_ADDR_BIT_WIDTH   = 11;
@@ -70,6 +70,7 @@ InstMemory #(
     IMEM_ADDR_BIT_WIDTH,
     INST_BIT_WIDTH
     ) instMem (
+	 .clk (clk),
     .addr (pc_out[IMEM_ADDR_BIT_WIDTH + IMEM_WORD_BITS - 1: IMEM_WORD_BITS]),
     .dataOut (inst_word)
 );
@@ -81,7 +82,7 @@ wire [3:0] src_reg1, src_reg2, dest_reg;
 wire [15:0] imm;
 wire [1:0] sel_pc, sel_alu_sr2, sel_reg_din;
 wire wr_reg, wr_mem;
-Decoder decoder (
+SCProcController controller (
     .data (inst_word),
     .alu_out (alu_out),
     .alu_fn (alu_fn),

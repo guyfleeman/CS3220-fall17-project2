@@ -31,10 +31,7 @@ PLL	PLL_inst (
 
 wire reset = ~lock;
 
-wire [3:0] proc_key_in;
-wire [9:0] proc_sw_in;
 wire [15:0] proc_hex_out;
-wire [9:0] proc_ledr_out;
 Processor #(
     .DBITS (DBITS),
     .IMEM_INIT_FILE (IMEM_INIT_FILE)
@@ -42,30 +39,15 @@ Processor #(
     .clk (clk),
     .reset (reset),
 
-    .key_in (proc_key_in),
-    .sw_in (proc_sw_in),
+    .key_in (KEY),
+    .sw_in (SW),
     .hex_out (proc_hex_out),
     .ledr_out (LEDR)
 );
 
-//reg [9:0] leds = ;
-//assign LEDR = 10'b1110000110;
-//reg [15:0] hex_fixed = 16'h01;
-
-SCProcController controller (
-    .key_in (KEY),
-    .ledr_in (proc_ledr_out),
-    .key_out (proc_key_in),
-    //.ledr_out (LEDR),
-
-    .sw_in (SW),
-    .sw_out (proc_sw_in),
-
-    .hex_in (proc_hex_out),
-    .hex0_out (HEX0),
-    .hex1_out (HEX1),
-    .hex2_out (HEX2),
-    .hex3_out (HEX3)
-);
+SevenSeg sseg0 (.dIn (proc_hex_out[3:0]),   .dOut (HEX0));
+SevenSeg sseg1 (.dIn (proc_hex_out[7:4]),   .dOut (HEX1));
+SevenSeg sseg2 (.dIn (proc_hex_out[11:8]),  .dOut (HEX2));
+SevenSeg sseg3 (.dIn (proc_hex_out[15:12]), .dOut (HEX3));
 
 endmodule
