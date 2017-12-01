@@ -56,7 +56,7 @@ always @(posedge clk) begin
         case (addr)
             `ADDR_HEX:  mmio_hex <= data_in[15:0];
             `ADDR_LEDR: mmio_ledr <= data_in[9:0];
-            default:    data[addr] <= data_in[ADDR_BIT_WIDTH-1:0];
+            default:    data[addr] <= data_in[DATA_BIT_WIDTH-1:0];
         endcase
     end
 end
